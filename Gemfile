@@ -43,8 +43,13 @@ gem "active_model_serializers"
 gem "ember-rails", "~>0.14"
 gem "ember-source", "~>1.1"
 
+
 group :production do
     gem 'rails_12factor'
 end
 
-ruby '2.1.3'
+# ruby '2.1.3'
+
+group :development, :test do
+    gem 'dotenv-rails'
+end

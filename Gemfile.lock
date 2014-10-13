@@ -42,6 +42,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    dotenv (1.0.1)
+    dotenv-rails (1.0.1)
+      dotenv (= 1.0.1)
     ember-data-source (1.0.0.beta.10)
       ember-source
     ember-rails (0.15.0)
@@ -133,6 +136,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   ember-rails (~> 0.14)
   ember-source (~> 1.1)
   jbuilder (~> 2.0)
