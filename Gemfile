@@ -43,6 +43,8 @@ gem "active_model_serializers"
 gem "ember-rails", "~>0.14"
 gem "ember-source", "~>1.1"
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 group :production do
     gem 'rails_12factor'
@@ -52,4 +54,6 @@ end
 
 group :development, :test do
     gem 'dotenv-rails'
+    gem 'rspec-rails'
+    gem 'capybara'
 end
