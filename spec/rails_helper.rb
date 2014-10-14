@@ -6,9 +6,14 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
+# Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
 
 Capybara.default_host = 'http://localhost:3000'
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
