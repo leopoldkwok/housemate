@@ -1,6 +1,8 @@
 Feature: As a user I want to be able to add 
     bills to my list from my homepage
 
+
+
         @javascript
         Scenario: The user can add a bill
             When that I am on the homepage
