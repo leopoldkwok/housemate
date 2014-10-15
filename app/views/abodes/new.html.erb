@@ -1,0 +1,15 @@
+Add the address for your abode
+
+<%= form_for @abode do |f| %>
+  <%= f.label :name_number %>
+  <%= f.text_field :name_number %>
+  <%= f.label :street %>
+  <%= f.text_field :street %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :county %>
+  <%= f.text_field :county %>
+  <%= f.label :postcode %>
+  <%= f.text_field :postcode %>
+  <%= f.submit %>
+  <% end %>

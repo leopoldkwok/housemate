@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015142927) do
+ActiveRecord::Schema.define(version: 20141015143331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abodes", force: true do |t|
+    t.string   "name_number"
+    t.string   "street"
+    t.string   "city"
+    t.string   "county"
+    t.string   "postcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bills", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amount",        precision: 8, scale: 2
+    t.integer  "supplier_id"
+    t.string   "supplier_type"
+  end
+
+  add_index "bills", ["supplier_id", "supplier_type"], name: "index_bills_on_supplier_id_and_supplier_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
