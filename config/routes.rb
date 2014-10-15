@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
   root :to => 'assets#index'
-  get 'assets/index'
+  # get 'users/sign_out' => "devise/sessions#destroy"
+
+
+  # for some reason needed this.
+    devise_scope :user do
+      get 'users/sign_out' => "devise/sessions#destroy"
+    end
+  # get 'assets/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
