@@ -11,9 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141015124255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amount",        precision: 8, scale: 2
+    t.integer  "supplier_id"
+    t.string   "supplier_type"
+  end
+
+  add_index "bills", ["supplier_id", "supplier_type"], name: "index_bills_on_supplier_id_and_supplier_type", using: :btree
 
 end

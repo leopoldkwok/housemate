@@ -9,6 +9,6 @@ Feature: As a user I want to be able to add
             And I should see an input called "Amount"
 
             Then when I fill in "Bill" with "Electricity" and "Amount" with "£20"
-            And click the button "Add a Bill"
+            And click the button "Add Bill"
             Then I should see "Electricity £20"
 

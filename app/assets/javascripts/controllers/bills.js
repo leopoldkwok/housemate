@@ -1,0 +1,1 @@
+App.billsController = Ember.ObjectController.extend({})
