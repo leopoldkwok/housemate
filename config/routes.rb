@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   root :to => 'home#index'
 
-  devise_for :users
-
   # for some reason needed this.
     devise_scope :user do
       get 'users/sign_out' => "devise/sessions#destroy"
@@ -32,18 +30,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
+    resources :abodes
 
 resources :bills
 
