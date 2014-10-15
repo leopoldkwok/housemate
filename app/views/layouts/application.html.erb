@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>App</title>
+  <title>Project Godfather</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <%= javascript_include_tag "application" %>
+
+    <%= yield %>
+
+    <main id="ember-app"></main>
+
 </body>
+
 </html>

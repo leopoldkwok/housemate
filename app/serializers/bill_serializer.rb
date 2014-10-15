@@ -1,3 +1,3 @@
-class BillSerializer < ApplicationSerializer
-  attributes :id
+class BillSerializer < ActiveModel::Serializer
+  attributes :id, :description, :amount
 end

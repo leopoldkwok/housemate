@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-bill = Bill.create(description: "Gas", amount: 20.25)
+@bill = Bill.create(description: "Gas", amount: 20.25)
