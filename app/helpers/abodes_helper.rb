@@ -1,0 +1,2 @@
+module AbodesHelper
+end
