@@ -8,7 +8,7 @@
 // for more details see: http://emberjs.com/guides/application/
 App = Ember.Application.create({rootElement: '#ember-app'});
 
-
+//= require_tree .
 
 
 

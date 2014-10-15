@@ -2,3 +2,8 @@
 <input type='text' class='input-bill' name='Bill'></input>
 <input type='text' class='input-amount' name='Amount'></input>
 
+<ul>
+    {{#each bill in controller}}
+        <li> {{bill.description}} </li>
+    {{/each}}
+</ul>
