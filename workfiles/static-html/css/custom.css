@@ -2,6 +2,86 @@ body {
 	padding: 45px 0 0 0;
 }
 
+.navbar-brand {
+  padding: 3px 0px 0px 12px;
+}
+
 .navbar-brand img {
-	width: 45px;
+  position: left;
+  width: 45px;
+}
+
+.navbar-menu img {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  height: 45px;
+  width: 45px;
+  padding: 0px 0px 0px 0px;
+}
+
+/*h2.container-fluid{
+  position: relative;
+  display: block;
+  padding: 7px;
+  border-bottom: 2px solid #f3f2e8;
+}*/
+
+a:link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #3792b3;
+}
+
+ul.lst {
+    list-style-type: none;
+}
+
+ul.lst li a {
+  display: block;
+  padding: 7px 50px 7px 7px;
+  border-bottom: 1px solid #f3f2e8;
+  overflow: hidden;
+}
+
+ul.lst li span {
+  float: left;
+  width: 75%;
+}
+
+ul.lst li em {
+  float: right;
+  font-style: normal;
+  font-weight: normal;
+  color: #9c836e;
+}
+
+ul.totals{
+  list-style-type: none;
+}
+
+ul.totals li {
+  position: relative;
+  margin: 0 0 10px 2px;
+}
+
+ul.totals a {
+  position: relative;
+  display: block;
+  padding: 5px;
+  z-index: 100;
+}
+
+ul.totals li span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+  text-indent:  0px;
+  background: #f3f2e8;
+}
+
+.totals {
+  font-size: 20px;
 }
