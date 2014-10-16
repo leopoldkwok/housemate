@@ -1,3 +1,9 @@
+{{#each errors.messages}}
+  <div class="error">
+    {{message}}
+  </div>
+{{/each}}
+
 {{input type='text' id='input-bill' name='Bill' placeholder="Bill" value=newDescription}}
 {{input type='text' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
 <button class='add-bill' {{action 'createBill'}} >Add Bill</button>
@@ -7,3 +13,5 @@
         <li> {{bill.description}} £{{bill.amount}}</li>
     {{/each}}
 </ul>
+
+

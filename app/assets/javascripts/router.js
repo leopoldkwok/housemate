@@ -4,7 +4,7 @@ App.Router.reopen({
 })
 
 App.Router.map(function() {
-  this.resource('bills', { path: '/'})
+    this.resource('bills', { path: '/'}
+    )
 })
-
 

@@ -10,7 +10,7 @@ respond_to :json
   end
 
   def create
-    respond_with :api, :v1, Bill.create(bill_params)
+    respond_with Bill.create(bill_params)
   end
 
   def update
