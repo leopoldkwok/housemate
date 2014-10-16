@@ -21,7 +21,7 @@ Feature: As a user I want to be able to
             When I fill in "Bill" with "taxes" and "Amount" with "40"
             And click the button "Add Bill"
             Then I should see "taxes £40"
-            And click the button "Delete Bill"
+            And click the button "x"
             Then I should not see "taxes £40"
 
 
