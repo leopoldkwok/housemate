@@ -11,6 +11,7 @@ Feature: Adding an abode
 
   Scenario: Abode added
     Given I am on the new abode page
+    And I have signed in as a user
     And I have filled in the form
     When I click submit
     Then I should see the abode's page
