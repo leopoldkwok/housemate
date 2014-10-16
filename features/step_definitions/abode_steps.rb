@@ -2,6 +2,11 @@ Given(/^I am on the homepage$/) do
   visit '/'
 end
 
+# Given(/^I have signed in as a user$/) do
+#   User.create(email: 'bob@bob.com', password: '12345678')
+#   user.sign_in('bob@bob.com', '12345678')
+# end
+
 When(/^I click the link to add an abode$/) do
   click_link 'Add an abode'
 end

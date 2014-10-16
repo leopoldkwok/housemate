@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => 'home#index'
 
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
     resources :abodes
+    post "abodes/add_user" => "abodes#add_user"
 
 
   # get 'assets/index'
