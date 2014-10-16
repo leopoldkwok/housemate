@@ -6,5 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Bill.destroy_all
 
-@bill = Bill.create(description: "Gas", amount: 20.25)
+@gas            = Bill.create(description: "Gas", amount: 20.25)
+@electricity    = Bill.create(description: "Electricity", amount: 45.30)
+@tv             = Bill.create(description: "TV", amount: 15.75)
+@counciltax     = Bill.create(description: "Council Tax", amount: 89.03)

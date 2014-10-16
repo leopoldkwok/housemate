@@ -1,10 +1,9 @@
-
-<button class='add-bill'>Add Bill</button>
-<input type='text' class='input-bill' name='Bill'></input>
-<input type='text' class='input-amount' name='Amount'></input>
+{{input type='text' id='input-bill' name='Bill' placeholder="Bill" value=newDescription}}
+{{input type='text' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
+<button class='add-bill' {{action 'createBill'}} >Add Bill</button>
 
 <ul>
     {{#each bill in controller}}
-        <li> {{bill.description}} </li>
+        <li> {{bill.description}} £{{bill.amount}}</li>
     {{/each}}
 </ul>
