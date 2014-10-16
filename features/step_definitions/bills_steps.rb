@@ -20,8 +20,8 @@ Then(/^I should see "(.*?)"$/) do |arg1|
   expect(page).to have_content arg1
 end
 
-Then(/^I should not see "(.*?)"$/) do |arg1|
-  expect(page).not_to have_content arg1
+Then(/^I should not see "(.*?)"$/) do |text|
+  expect(page).not_to have_content text
 end
 
 Then(/^click the button "(.*?)"$/) do |arg1|
@@ -34,5 +34,9 @@ end
 
 Then(/^I should see a "(.*?)" called "(.*?)"$/) do |arg1, arg2|
   expect(page).to have_css(arg1, visible: arg2)
+end
+
+When(/^check the box$/) do
+  find(:css, "#settle").set(true)
 end
 

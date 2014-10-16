@@ -28,7 +28,7 @@ respond_to :json
   end
 
   def bill_params
-    params.require(:bill).permit(:description, :amount)
+    params.require(:bill).permit(:description, :amount, :settled)
   end
 
 end

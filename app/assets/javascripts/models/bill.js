@@ -3,7 +3,8 @@ var attr = DS.attr,
     belongsTo = DS.belongsTO;
 
 App.Bill = DS.Model.extend({
-    description:    attr(),
-    amount:         attr()
+    description:    attr('string'),
+    amount:         attr('number'),
+    settled:      attr('boolean')
 })
 

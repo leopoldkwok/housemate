@@ -10,6 +10,9 @@ require 'capybara/poltergeist'
 
 #Poltergeist settings to test JS features
 Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
 Capybara.register_driver :poltergeist do |app|
     options = {
         :js_errors => false,
@@ -46,15 +49,7 @@ ActionController::Base.allow_rescue = false
 
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
-begin
-  DatabaseCleaner.strategy = :transaction
-rescue NameError
-  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-end
 
-After do
-    User.destroy_all
-end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:
