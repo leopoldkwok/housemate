@@ -1,9 +1,9 @@
 h1 {
   margin: 0 0 0 0;
-  position: absolute;
+  text-align: center;
   font-family: 'Roboto Slab', serif;
   font-size: 40px;
-  padding: 0px 0 0 300px;
+  color: white;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
 .navbar-header {
   margin-left: auto;
   margin-right: auto;
-  width: 8em;
+  text-align: center;
 }
 
 .navbar-menu img {
@@ -33,13 +33,23 @@ body {
   width: 45px;
   padding: 0px 0px 0px 0px;
 }
+
 h2 {
   font-family: 'Roboto Slab', serif;
   padding: 7px 50px 7px 47px;
 }
 
+h3 {
+  font-family: 'Roboto Slab', serif;
+  padding: 7px 50px 7px 47px;
+}
+
+h4{
+    padding: 7px 50px 7px 47px;
+}
+
 form {
-   display: block;
+  display: block;
   padding: 7px 50px 7px 47px;
 }
 
@@ -107,10 +117,8 @@ ul.totals li:hover {
 }
 
 #dropdownMenu1 {
-  padding: 15px 170px;
   position: absolute;
   left: 57px;
-  background-color: #BF202E;
-  font-size: 29px;
-  font-weight: bold;
+  right: 57px;
+  text-align: center;
 }
