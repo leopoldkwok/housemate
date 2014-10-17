@@ -1,3 +1,4 @@
+@abode
 Feature: Adding an abode
   In order manage our bills
   As a user

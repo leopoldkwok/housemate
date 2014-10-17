@@ -1,3 +1,4 @@
+@housemates
 Feature: Adding housemates to an abode
   Scenario: Housemate does not exist
     Given I have signed up

@@ -1,3 +1,4 @@
+@bills
 Feature: As a user I want to be able to 
     add and delete bills to my list from 
     my homepage. I also want to be able to
