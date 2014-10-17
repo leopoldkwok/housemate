@@ -5,13 +5,15 @@
 
     <ul>
         {{#each itemController='bill'}}
-            <li {{bind-attr class="settled:completed"}} > 
-                {{input type="checkbox" name='settle-check' checked=settled class="toggle"}}
-                {{description}} £{{amount}}
-                <button {{action "removeBill"}} class="destroy">X</button>
-            </li>
+            
+                <li {{bind-attr class="settled:completed"}} > 
+                    {{input type="checkbox" name='settle-check' checked=settled class="toggle"}}
+                    {{description}} £{{adjustedAmount}}
+                    <button {{action "removeBill"}} class="destroy">X</button>
+                </li>
         {{/each}}
     </ul>
 
+{{currentUser.isSignedIn}} 
 
-<p>Total Settled: £{{completedSum}}</p>
+<p>Total Settled: £{{adjustedCompleted}}</p>
