@@ -7,7 +7,7 @@
         {{#each itemController='bill'}}
             <li {{bind-attr class="settled:completed"}} > 
                 {{input type="checkbox" name='settle-check' checked=settled class="toggle"}}
-                {{description}} £{{amount}} {{settled}}
+                {{description}} £{{amount}}
                 <button {{action "removeBill"}} class="destroy">X</button>
             </li>
         {{/each}}
