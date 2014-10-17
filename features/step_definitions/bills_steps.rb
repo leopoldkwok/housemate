@@ -37,6 +37,6 @@ Then(/^I should see a "(.*?)" called "(.*?)"$/) do |arg1, arg2|
 end
 
 When(/^check the box$/) do
-  find(:css, "#settle").set(true)
+  check 'settle-check'
 end
 

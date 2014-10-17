@@ -26,7 +26,7 @@ Feature: As a user I want to be able to
         And click the button "X"
         Then I should not see "taxes £40"
 
-    @javascript
+    @javascript @selenium
     Scenario: The user can mark a bill as settled
         When I fill in "Bill" with "taxes" and "Amount" with "40"
         And click the button "Add Bill"

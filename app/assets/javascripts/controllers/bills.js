@@ -16,8 +16,14 @@ App.BillsController = Ember.ArrayController.extend({
             this.set('newAmount', '');
             bill.save()
         }   
-    } 
-
+    },
+    completed: function() {
+        return this.filterBy('settled', true);
+    }.property('@each.settled'),
+    completedAmount: Ember.computed.mapBy('completed', 'amount'),
+    completedSum: Ember.computed.sum('completedAmount')
 })
+
+
 
 
