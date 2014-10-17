@@ -1,3 +1,7 @@
+.active {
+  font-family: 'Roboto Slab', serif;
+}
+
 body {
 	padding: 45px 0 0 0;
 }
@@ -19,15 +23,17 @@ body {
   width: 45px;
   padding: 0px 0px 0px 0px;
 }
+h2 {
+  font-family: 'Roboto Slab', serif;
+  padding: 7px 50px 7px 47px;
+}
 
-/*h2.container-fluid{
-  position: relative;
-  display: block;
-  padding: 7px;
-  border-bottom: 2px solid #f3f2e8;
-}*/
+form {
+   display: block;
+  padding: 7px 50px 7px 47px;
+}
 
-a:link {
+a:link, a:hover, a:visited {
   font-weight: bold;
   text-decoration: none;
   color: #3792b3;
@@ -58,30 +64,43 @@ ul.lst li em {
 
 ul.totals{
   list-style-type: none;
+  display: block;
+  font-size: 20px;
+  text-indent:  0px;
 }
 
 ul.totals li {
   position: relative;
   margin: 0 0 10px 2px;
+/*  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;*/
+  transition: font-size 0.3s ease, background-color 0.3s ease;
 }
 
-ul.totals a {
+ul.totals li a {
   position: relative;
-  display: block;
   padding: 5px;
   z-index: 100;
 }
 
 ul.totals li span {
   position: absolute;
-  top: 0;
   left: 0;
-  display: block;
   height: 100%;
-  text-indent:  0px;
   background: #f3f2e8;
 }
 
-.totals {
-  font-size: 20px;
+ul.totals li:hover {
+  font-size: 30px;
+}
+
+#dropdownMenu1 {
+  padding: 15px 170px;
+  position: absolute;
+  left: 57px;
+  background-color: #BF202E;
+  font-size: 29px;
+  font-weight: bold;
 }
