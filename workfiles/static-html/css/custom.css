@@ -1,5 +1,9 @@
-.active {
+h1 {
+  margin: 0 0 0 0;
+  position: absolute;
   font-family: 'Roboto Slab', serif;
+  font-size: 40px;
+  padding: 0px 0 0 300px;
 }
 
 body {
@@ -13,6 +17,12 @@ body {
 .navbar-brand img {
   position: left;
   width: 45px;
+}
+
+.navbar-header {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
 }
 
 .navbar-menu img {
