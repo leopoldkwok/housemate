@@ -28,12 +28,12 @@ Then(/^click the button "(.*?)"$/) do |arg1|
   click_button arg1
 end
 
-Then(/^I should see an "(.*?)" called "(.*?)"$/) do |arg1, arg2|
-  expect(page).to have_css(arg1, visible: arg2)
+Then(/^I should see an "(.*?)" called "(.*?)"$/) do |element, text|
+  expect(page).to have_css(element, visible: text)
 end
 
-Then(/^I should see a "(.*?)" called "(.*?)"$/) do |arg1, arg2|
-  expect(page).to have_css(arg1, visible: arg2)
+Then(/^I should see a "(.*?)" called "(.*?)"$/) do |element, text|
+  expect(page).to have_css(element, visible: text)
 end
 
 When(/^check the box$/) do

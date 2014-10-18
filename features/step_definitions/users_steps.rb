@@ -13,3 +13,6 @@ Then(/^I am logged in as "(.*?)"$/) do |user|
   current_user = User.find_by_email(user)
   login_as current_user, scope: :user
 end
+Then(/^I should see '(\d+)' buttons called "(.*?)"$/) do |number, name|
+  expect(page).to have_css('button', text: name, count: number)
+end
