@@ -1,12 +1,15 @@
 Given(/^the following users exist:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  @users = table.raw
+  puts '========='
+  @user1 = User.create(email: @users[1][0], password: @users[1][1])
+  @user2 = User.create(email: @users[2][0], password: @users[2][1])
 end
 
-Given(/^"(.*?)" uploads a "(.*?)" bill for "(.*?)" pounds$/) do |arg1, arg2, arg3|
-  pending # express the regexp above with the code you wish you had
+Given(/^"(.*?)" uploads a "(.*?)" bill for "(.*?)" pounds$/) do |user, description, amount|
+  Bill.create(description: description, amount: amount, user_id: User.find_by_email(user).id)
 end
 
-Then(/^I am logged in as "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I am logged in as "(.*?)"$/) do |user|
+  current_user = User.find_by_email(user)
+  login_as current_user, scope: :user
 end

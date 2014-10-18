@@ -6,9 +6,9 @@ Feature: As a user I want to be able to see
 
     Background:
         Given the following users exist:
-            |        email          |    password   |
-            |   'test1@test.com'    |   '12345678'  |
-            |   'test2@test.com'    |   '12345678'  |    
+            |      email          |  password   |
+            |   test1@test.com    |   12345678  |
+            |   test2@test.com    |   12345678  |    
 
         And  "test1@test.com" uploads a "tv" bill for "30.50" pounds
         And  "test2@test.com" uploads a "tax" bill for "34.60" pounds
@@ -19,6 +19,7 @@ Feature: As a user I want to be able to see
 
     @javascript
     Scenario: The user can see other users' bills
-        Then I should see "tv £30.50" and "tax £34.60"
+        Then I should see "tv £30.50" 
+        And I should see "tax £34.60"
 
 
