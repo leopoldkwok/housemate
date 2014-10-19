@@ -7,3 +7,10 @@ App.ApplicationStore = DS.Store.extend({
 App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
 
 });
+
+// App.ApplicationSerializer = DS.RESTSerializer.extend({
+//     primaryKey: '_id',
+//     serializeId: function(id) {
+//         return id.toString();
+//     }
+// });

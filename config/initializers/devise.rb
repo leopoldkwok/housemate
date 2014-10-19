@@ -276,7 +276,7 @@ Devise.setup do |config|
 
   # config.omniauth :facebook, ENV["FACEBOOK_APP_SECRET"], ENV["FACEBOOK_APP_SECRET"]
 
-    config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
+    # config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

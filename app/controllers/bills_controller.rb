@@ -2,7 +2,7 @@ class BillsController < ApplicationController
 respond_to :json
 
   def index
-    respond_with Bill.all
+    respond_with bills
   end
 
   def show
@@ -28,7 +28,11 @@ respond_to :json
   end
 
   def bill_params
-    params.require(:bill).permit(:description, :amount, :settled, :user_id)
+    params.require(:bill).permit(:description, :amount, :settled, :user_id) if user_signed_in?
+  end
+
+  def bills
+    Bill.where(abode_id: current_user.abode_id) if user_signed_in?  
   end
 
 end

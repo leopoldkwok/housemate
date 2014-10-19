@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018122051) do
+ActiveRecord::Schema.define(version: 20141019140343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20141018122051) do
     t.string   "supplier_type"
     t.boolean  "settled",                               default: false
     t.integer  "user_id"
+    t.integer  "abode_id"
   end
 
+  add_index "bills", ["abode_id"], name: "index_bills_on_abode_id", using: :btree
   add_index "bills", ["supplier_id", "supplier_type"], name: "index_bills_on_supplier_id_and_supplier_type", using: :btree
   add_index "bills", ["user_id"], name: "index_bills_on_user_id", using: :btree
 
