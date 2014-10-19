@@ -65,6 +65,8 @@ a:link, a:hover, a:visited {
 
 ul.lst {
     list-style-type: none;
+    height: 100px;
+    overflow: auto;
 }
 
 ul.lst li a {

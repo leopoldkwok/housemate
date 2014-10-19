@@ -5,27 +5,29 @@
     <title>HouseMate</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/custom.css">
-          <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400|Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400|Open+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
   <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
     <header>
-
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
-         <div class="col-xs-4 col-md-4"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a></div>
-        <div class="navbar-header col-xs-4 col-md-4"><h1>HouseMate</h1></div>
-      <div><a href="#" class="navbar-menu col-xs-4 col-md-4" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Settings</a></li>
-            <li class="divider"></li>
-            <li><a href="#">All bills</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Pay Housemates</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Sign out</a></li>
-          </ul>
-        </li></a></div><!-- End of nav bar -->
+          <div class="col-xs-4 col-md-4"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a>
+          </div>
+          <div class="navbar-header col-xs-4 col-md-4"><h1>HouseMate</h1></div>
+          <div><a href="#" class="navbar-menu col-xs-4 col-md-4" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#">All bills</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Pay Housemates</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- End of nav bar -->
     </header>
     <div class="container-fluid">
       <h2>Your bills</h2>
@@ -44,11 +46,19 @@
          <button type="submit" class="btn btn-default">Submit</button>
         </form>
       </section>
-      <ul class="lst">
-        <li><a href="#"><span>Water</span> <em>£20.37</em></a></li>
-        <li><a href="#"><span>Council Tax</span> <em>£72.54</em></a></li>
-        <li><a href="#"><span>Electric</span> <em>£48.17</em></a></li>
-      </ul>
+        <div id="main">
+          <ul class="lst">
+            <li><a href="#"><span>Water</span> <em>£20.37</em></a></li>
+            <li><a href="#"><span>Council Tax</span> <em>£72.54</em></a></li>
+            <li><a href="#"><span>Electric</span> <em>£48.17</em></a></li>
+            <li><a href="#"><span>Gas</span> <em>£20.37</em></a></li>
+            <li><a href="#"><span>Insurance</span> <em>£35.74</em></a></li>
+            <li><a href="#"><span>Broadband</span> <em>£32.99</em></a></li>
+            <li><a href="#"><span>TV licence</span> <em>£24.00</em></a></li>
+            <li><a href="#"><span>Sky</span> <em>£54.00</em></a></li>
+            <li><a href="#"><span>Netflix</span> <em>£12.99</em></a></li>
+          </ul>
+        </div>
 
       <ul class="totals">
         <li><a href="#">Your bills paid</a><span style="width: 80%;"></li>
@@ -70,5 +80,8 @@
     </footer>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/stroll.min.js"></script>
+    <script>stroll.bind( '#main ul' );
+    </script>
   </body>
 </html>
