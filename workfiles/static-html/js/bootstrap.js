@@ -243,6 +243,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     })
   }
 
+  $('.dropdown-toggle').dropdown()
+
   var old = $.fn.button
 
   $.fn.button             = Plugin

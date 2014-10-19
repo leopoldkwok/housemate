@@ -5,21 +5,27 @@
     <title>HouseMate</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/custom.css">
+          <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400|Open+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
+  <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
     <header>
-      <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400|Open+Sans' rel='stylesheet' type='text/css'>
+
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
-<!--           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button> -->
          <div class="col-xs-4 col-md-4"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a></div>
         <div class="navbar-header col-xs-4 col-md-4"><h1>HouseMate</h1></div>
-      <div><a class="navbar-menu col-xs-4 col-md-4" href="#"><img src="img/Menu-logo.png"></a></div><!-- End of nav bar -->
+      <div><a href="#" class="navbar-menu col-xs-4 col-md-4" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="#">All bills</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Pay Housemates</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Sign out</a></li>
+          </ul>
+        </li></a></div><!-- End of nav bar -->
     </header>
     <div class="container-fluid">
       <h2>Your bills</h2>
@@ -48,21 +54,21 @@
         <li><a href="#">Your bills paid</a><span style="width: 80%;"></li>
         <li><a href="#">House bills paid</a><span style="width: 60%"></li>
       </ul>
-    </div><!-- End of main container -->
+    </div><!-- End of main container --> 
+
+    <footer>
+      <div class="btn-group">
+        <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Pay your housemates</button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Pay Tom</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Pay Dick</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Pay Harry</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
 </html>
-<footer>
-  <div class="dropdown">
-  <button class="btn btn-default center-block dropdown-toggle col-xs-4 col-sm-4" type="button" id="dropdownMenu1" data-toggle="dropdown">
-    Pay your housemates
-    <span class="caret"></span>
-  </button>
-  <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-       <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  </ul> -->
-</div>
-</footer>

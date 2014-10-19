@@ -34,6 +34,8 @@ body {
   padding: 0px 0px 0px 0px;
 }
 
+
+
 h2 {
   font-family: 'Roboto Slab', serif;
   padding: 7px 50px 7px 47px;
@@ -41,7 +43,9 @@ h2 {
 
 h3 {
   font-family: 'Roboto Slab', serif;
+  font-size: 23px;
   padding: 7px 50px 7px 47px;
+  height: 10px;
 }
 
 h4{
@@ -115,12 +119,4 @@ ul.totals li span {
 
 ul.totals li:hover {
   font-size: 30px;
-}
-
-#dropdownMenu1 {
-  position: absolute;
-  left: 57px;
-  right: 57px;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
