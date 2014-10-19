@@ -5,8 +5,6 @@ var attr = DS.attr,
 App.Bill = DS.Model.extend({
     description:    attr('string'),
     amount:         attr('number'),
-    settled:      attr('boolean'),
-    user_id:        attr('number')
-    , user:         belongsTo('user')
-})
+    settled:        attr('boolean')
+});
 

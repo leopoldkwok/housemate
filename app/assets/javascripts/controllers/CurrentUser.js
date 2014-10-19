@@ -1,5 +1,5 @@
-App.CurrentUserController = Ember.ObjectController.extend({
-  isSignedIn: (function() {
-    return this.get('content') !== null;
-  }).property('content')
-});
+// App.CurrentUserController = Ember.ObjectController.extend({
+//   isSignedIn: (function() {
+//     return this.get('content') !== null;
+//   }).property('content')
+// });

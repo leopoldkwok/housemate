@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  belongs_to :abode
   has_many :bills
+  belongs_to :abode
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

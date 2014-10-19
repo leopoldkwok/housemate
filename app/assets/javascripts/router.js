@@ -1,10 +1,10 @@
-// App.Router.reopen({
-//   location: 'auto',
-//   rootURL: '/'
-// })
+App.Router.reopen({
+  location: 'history',
+  rootURL: '/'
+})
 
 App.Router.map(function() {
-    this.resource('bills', { path: '/'})
-    ,this.resource('users')
+    // this.resource('bills', { path: '/'})    
+    this.resource('users', { path: '/'})
 })
 

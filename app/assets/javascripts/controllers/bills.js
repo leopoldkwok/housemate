@@ -1,4 +1,5 @@
 App.BillsController = Ember.ArrayController.extend({
+    itemControlller: 'bill',
     sortAscending: false,
     sortProperties: ['amount'],
     actions: {             
