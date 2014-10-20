@@ -1,5 +1,5 @@
 class BillSerializer < ActiveModel::Serializer
   attributes :id, :description, :amount, :settled
-  #     , :user_id
+  # , :user_id
 
 end
