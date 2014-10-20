@@ -1,14 +1,16 @@
+body {
+  padding: 45px 0 0 0;
+  background-color: #E5E1D1;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
 h1 {
   margin: 0 0 0 0;
   text-align: center;
   font-family: 'Roboto Slab', serif;
   font-size: 40px;
   color: #C44741;
-}
-
-body {
-	padding: 45px 0 0 0;
-  background-color: #E5E1D1;
 }
 
 .navbar-inverse {
@@ -39,7 +41,6 @@ body {
   padding: 0px 0px 0px 0px;
 }
 
-
 h2 {
   font-family: 'Roboto Slab', serif;
   padding: 7px 50px 7px 47px;
@@ -61,16 +62,22 @@ form {
   padding: 7px 50px 7px 42px;
 }
 
+.input-group-addon {
+  background-color: #fff;
+}
+
 a:link, a:hover, a:visited {
   font-weight: bold;
   text-decoration: none;
-  color: #2C343B;
+  color: #52616D;
 }
 
 ul.lst {
     list-style-type: none;
     height: 100px;
     margin: 10px 42px 10px 42px;
+    margin-left: 42px;
+    margin-right: 42px;
     overflow: auto;
     background-color: #FFFFFF;
     border-radius: 5px;
@@ -133,4 +140,22 @@ ul.totals li span {
 
 ul.totals li:hover {
   font-size: 30px;
+}
+
+.btn-default {
+  background-color: #C44741;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn-default:hover{
+  background-color: #C44741;  
+}
+
+.dropdown-menu{
+  background-color: #C44741;  
+}
+
+.btn-group-bottom {
+  margin-left: 56px;
 }
