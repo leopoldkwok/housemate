@@ -5,13 +5,13 @@
 
 <ul>
     {{#each user in content}} 
-        <li>{{user.email}}</li><button {{action "removeBill" id}} class="destroy">X</button>
+        <li>{{user.email}}</li>
             {{#each bill in user.bills}}
 
                 {{#with bill}}
                     <li {{bind-attr class="settled:completed"}} > 
                         {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
-                        {{description}} [£{{adjustedAmount}}] {{amount}} {{settled}}
+                        {{description}} £{{adjustedAmount}} 
                         <button {{action "removeBill" id}} class="destroy">X</button>
                     </li>
                 {{/with}}
