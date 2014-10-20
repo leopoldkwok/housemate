@@ -70,15 +70,17 @@ a:link, a:hover, a:visited {
 ul.lst {
     list-style-type: none;
     height: 100px;
-    margin-left: 42px;
+    margin: 10px 42px 10px 42px;
     overflow: auto;
     background-color: #FFFFFF;
     border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 ul.lst li a {
   display: block;
-  padding: 7px 50px 7px 7px;
+  padding: 7px 7px 7px 7px;
   border-bottom: 1px solid #f3f2e8;
   overflow: hidden;
 }
@@ -86,6 +88,7 @@ ul.lst li a {
 ul.lst li span {
   float: left;
   width: 75%;
+  padding: 0 0 0 10px;
 }
 
 ul.lst li em {
@@ -93,6 +96,7 @@ ul.lst li em {
   font-style: normal;
   font-weight: normal;
   color: #9c836e;
+  padding: 0 10px 0 0;
 }
 
 ul.totals{
@@ -125,7 +129,6 @@ ul.totals li span {
   height: 100%;
   background: #f3f2e8;
   border-radius: 5px;
-
 }
 
 ul.totals li:hover {
