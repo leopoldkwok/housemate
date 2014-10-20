@@ -7,15 +7,15 @@ App.BillController = Ember.ObjectController.extend({
         } else {
             return val.toString();
         }
-    }),
-    settled:  function(key, value) {
-        var bill = this.get('model');
-        if (value === undefined) {
-            return bill.get('settled');
-        } else {
-            bill.set('settled', value);
-            bill.save();
-            return bill.get('settled');
-        }
-    }.property('bill.settled')
+    })
+    // settled:  function(key, value) {
+    //     var bill = this.get('model');
+    //     if (value === undefined) {
+    //         return bill.get('settled');
+    //     } else {
+    //         bill.set('settled', value);
+    //         bill.save();
+    //         return bill.get('settled');
+    //     }
+    // }.property('bill.settled')
 })

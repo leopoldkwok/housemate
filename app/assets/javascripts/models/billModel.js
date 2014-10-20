@@ -14,6 +14,11 @@ App.Bill = DS.Model.extend({
                             return val.toString();
                         }
     }),
-    user:           DS.belongsTo('user')
+    user:           DS.belongsTo('user'),
+    _changed:       false,
+    observed:       function() {
+                        this.set('_changed', true)             
+                    }.observes('settled')
+
 });
 

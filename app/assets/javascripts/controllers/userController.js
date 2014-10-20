@@ -1,6 +1,13 @@
 App.UserController = Ember.ObjectController.extend({
+    actions: {
+        removeBill: function (id) {
+            var bill = this.store.find('bill', id).then(function(bill){
+                bill.deleteRecord();
+                bill.save()
+            });
+        }
+    },
     completed: function() {
-        Ember.Logger.log(this)
         return this.get('bills').filterBy('settled', true);
     }.property('bills','@each.settled'),
     completedAmount: Ember.computed.mapBy('completed', 'amount'),
@@ -11,5 +18,12 @@ App.UserController = Ember.ObjectController.extend({
         } else {
             return this.get('completedSum').toString();
         }
-    }).property('completedSum')
+    }).property('completedSum'),
+    issettled:  function() {
+        Ember.Logger.log(this);
+        var bill = this.get('bills').filterBy('_changed', true)[0];
+        Ember.Logger.log(bill);
+        bill.set('_changed', false)
+        bill.save();
+    }.observes('bills.@each.settled')
 })

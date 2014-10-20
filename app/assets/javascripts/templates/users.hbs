@@ -7,15 +7,13 @@
     {{#each itemController='user'}}
             <li>{{email}}</li>
                 {{#each bill in bills}}
-
                     {{#with bill}}
                         <li {{bind-attr class="settled:completed"}} > 
-                            {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
-                            {{description}} £{{adjustedAmount}} 
+                            {{input type="checkbox" name='settle-check' checked=settled class="toggle"}}
+                            {{description}} £{{adjustedAmount}} {{settled}}
                             <button {{action "removeBill" id}} class="destroy">X</button>
                         </li>
                     {{/with}}
-
                 {{/each}}
             <p>Total Settled: £{{adjustedCompleted}}</p>
     {{/each}}
