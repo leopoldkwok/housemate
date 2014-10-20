@@ -1,5 +1,4 @@
 App.BillController = Ember.ObjectController.extend({
-    actions: {
     adjustedAmount: Ember.computed('bill.amount', function(){
         var bill = this.get('model');
         var val  = bill.get('amount');

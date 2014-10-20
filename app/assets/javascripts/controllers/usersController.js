@@ -6,7 +6,7 @@ App.UsersController = Ember.ArrayController.extend({
                 bill.save()
             });
         }
-    },
+    }
     // observeSession: function() {
     //     this.send("sessionChanged");
     // }.observes("session.isAuthenticated")
