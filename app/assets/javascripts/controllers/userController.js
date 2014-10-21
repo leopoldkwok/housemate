@@ -6,7 +6,7 @@ App.UserController = Ember.ObjectController.extend({
             var bill = this.store.find('bill', id).then(function(bill){
                 bill.destroyRecord();
             });
-        }
+        }  
     }, 
     isCurrentUser: function() {
         if(this.get('id') === this.get('currentUserId').toString()) {
