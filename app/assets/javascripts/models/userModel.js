@@ -3,7 +3,7 @@ var attr = DS.attr,
     belongsTo = DS.belongsTo;
 
 App.User = DS.Model.extend({
-    email:             attr('string'),
-    abode_id:          attr('number'),
-    bills:             DS.hasMany('bill')
+    email:      attr('string'),
+    abode_id:   attr('number'),
+    bills:      DS.hasMany('bill')
 })

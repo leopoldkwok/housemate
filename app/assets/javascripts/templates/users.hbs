@@ -10,12 +10,12 @@
                     {{#with bill}}
                         <li {{bind-attr class="settled:completed"}} > 
                             {{input type="checkbox" name='settle-check' checked=settled class="toggle"}}
-                            {{description}} £{{adjustedAmount}} {{settled}}
+                            {{description}} £{{adjustedAmount}}
                             <button {{action "removeBill" id}} class="destroy">X</button>
                         </li>
                     {{/with}}
                 {{/each}}
-            <p>Total Settled: £{{adjustedCompleted}}</p>
+            <p>Total Settled: £{{totalSettled}}</p>
     {{/each}}
 </ul>
 
