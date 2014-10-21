@@ -5,17 +5,15 @@ body {
 }
 
 h1 {
-  margin: 0 0 0 0;
+  margin: 7px 0 0 0;
   text-align: center;
   font-family: 'Roboto Slab', serif;
-  font-weight: bolder;
-  font-size: 40px;
-  color: #FFFFFF; /* NAVBAR TEXT */
+  font-size: 30px;
+  color: #6BD791; /* NAVBAR TEXT in Index 'Housemate' */
 }
 
-
 .navbar-inverse {
-  background-color: #000000; /* NAVBAR BACKGROUND */
+  background-color: #000000; /* NAVBAR BACKGROUND 112F39*/
   border-color: #000000; 
 }
 
@@ -43,60 +41,94 @@ h1 {
   padding: 0px 0px 0px 0px;
 }
 
+blockquote {
+padding: 15px 70px;
+margin: 0 0 20px;
+font-size: 17.5px;
+border-left: none;
+text-align: right;
+}
+
 h2 {
-  font-family: 'Roboto Slab', serif;
-  padding: 7px 50px 7px 47px;
-  color: #000000; /* YOUR BILLS TEXT */
+  font-size: 20px;
+  font-weight: bold;
+  padding: 50px 50px 7px 47px;
+  color: #464646; /* YOUR BILLS TEXT - index */
 }
 
 h3 {
   font-family: 'Roboto Slab', serif;
-  font-size: 23px;
-  padding: 7px 50px 7px 47px;
-  height: 10px;
+  font-size: 30px;
+  padding: 50px 50px 7px 47px;
+  color: #6BD791; /*Quote text in sign_up*/
 }
 
-h4{
+h4 {
   padding: 7px 50px 7px 47px;
 }
+
+h5 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 50px 50px 7px 47px;
+  color: #464646;
+}
+
+p {
+  font-size: 20px;
+  padding: 7px 50px 7px 47px;
+  height: 30px;
+  color: #464646;
+  margin: 50px -6px 15px;
+} /*Enter home and  housemates in abode */ 
+
 
 form {
   display: block;
   padding: 7px 50px 7px 42px;
 }
 
+/*input:focus::-webkit-input-placeholder
+{
+  color: transparent;
+}*/
+
+.form-control:focus::-webkit-input-placeholder {
+  transition: text-indent 0.5s 0.5s ease; 
+  text-indent: -100%;
+  opacity: 1;
+}
+
 .form-control{
   background-color: #FFFFFF; /* BACKGROUND FOR FORM */
   color: #FFFFFF;
-  border-top: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
-  border-left: 0px;
   box-shadow: none;
   border-radius: 0px;
 }
 
 .input-group-addon {
   background-color: #FFFFFF; /* BACKGROUND FOR £ */
-  border-top: 0px;
-  border-right: 0px;
-  border-bottom: 1px #000000; 
-  border-left: 0px;
-  box-shadow: none;
+}
+
+.btn { 
+  border-radius: 0px;
+  background-color: #6BD791;
 }
 
 a:link, a:hover, a:visited {
   font-weight: bold;
   text-decoration: none;
-  color: #000000; /* TEXT IN TABLE */
+  color: #464646; /* TEXT IN TABLE */
 }
 
 ul.lst {
     list-style-type: none;
     height: 100px;
     margin: 10px 42px 10px 42px;
+    margin-top: 30px;
     margin-left: 4px;
     margin-right: 42px;
+    margin-bottom: 50px;
     overflow: auto;
     background-color: #FFFFFF; /* BACKGROUND FOR TABLE */
 /*    border-radius: 5px;*/
@@ -107,7 +139,7 @@ ul.lst {
 ul.lst li a {
   display: block;
   padding: 7px 7px 7px 7px;
-  border-bottom: 1px solid #000000; /* LINES IN TABLE */
+  border-bottom: 1px solid #161616; /* LINES IN TABLE */
   overflow: hidden;
 }
 
@@ -121,7 +153,7 @@ ul.lst li em {
   float: right;
   font-style: normal;
   font-weight: normal;
-  color: #000000; /* £ AMOUNTS IN TABLE */
+  color: #464646; /* £ AMOUNTS IN TABLE */
   padding: 0 10px 0 0;
 }
 
@@ -135,7 +167,7 @@ ul.totals{
 
 ul.totals li {
   position: relative;
-  margin: 0 0 10px 2px;
+  margin: 20px 0 20px 2px;
 /*  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
   -o-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -147,52 +179,77 @@ ul.totals li a {
   position: relative;
   padding: 5px;
   z-index: 100;
-  color: #FFFFFF; /* TEXT IN TOTALS */
-
+  color: #464646; /* TEXT IN TOTALS */
 }
 
 ul.totals li span {
   position: absolute;
   left: 0;
   height: 100%;
-  background: #000000; /* BACKGROUND % BAR */
+  background: #6BD791; /* BACKGROUND % BAR */
 /*  border-radius: 5px;*/
 }
 
 ul.totals li:hover {
   font-size: 30px;
   border-color: #FFFFFF;
-
 }
 
-.btn-default {
-  background-color: #FFFFFF; /* BUTON BACKGROUND */
-  color: #000000; /* TEXT IN BUTONS */
-  font-weight: bolder;
-  font-size: 20px;
-  border-color: #FFFFFF;
-
+ul.pay {
+  color: #464646;
+  text-align: left;
+  display: inline;
+  margin: 57px;
+  padding: 15px 4px 17px 0;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #464646;
 }
-
-.btn-group > .btn:first-child {
-  margin-left: 40px;
-  font-size: 30px;
+ul.pay li {
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  padding: 15px 20px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
-
-.btn-default:hover{
-  background-color: #FFFFFF;  /* BUTON BACKGROUND */
-  border-color: #FFFFFF 
-
+ul.pay li:hover {
+  background: #555;
+  color: #fff;
 }
-
-.open > .dropdown-toggle.btn-default {
- color: #000000;
- background-color: #FFFFFF; 
- border-color: #FFFFFF; 
+ul.pay   li ul {
+  padding: 0;
+  position: absolute;
+  box-shadow: none;
+  top: 48px;
+  left: -1px;
+  width: 181px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
 }
-
-
-.dropdown-menu{
-  background-color: #FFFFFF;  /* BUTON BACKGROUND */
-  color: #000000; /* TEXT IN BUTONS */
+ul.pay   li ul li { 
+  background: #6BD791; 
+  display: block; 
+  color: #fff;
+/*  text-shadow: 0 -1px 0 #000;
+*/}
+ul.pay li ul li:hover { background: #666; }
+ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
