@@ -55,4 +55,8 @@ Feature: As a user I want to be able to
         And that I am on the homepage
         Then I should see "You are owed £18.72"
 
+    @javascript @selenium
+    Scenario: The user is told if they don't owe anything
+        Then I should see "We're square"
+
 

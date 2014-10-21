@@ -27,12 +27,14 @@ App.UsersController = Ember.ArrayController.extend({
         userSettled = this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
         amounts = this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
         flatmates   = this.model.store.all('user').content.length;
-        return amounts/flatmates - userSettled
+        return Math.round((amounts/flatmates - userSettled)*100)/100
     }.property('@each.totalSettled','currentUserId'),
 
     netOwedStr: function(){
         val = Math.abs(this.get('netOwed')).toString();
-        if (val.charAt(val.length-2) === ".") {
+        if (val === "0") {
+            return null
+        } else if (val.charAt(val.length-2) === ".") {
             return val + '0';
         } else {
             return val;
@@ -41,11 +43,14 @@ App.UsersController = Ember.ArrayController.extend({
 
     balanceMessage: function(){
         balance = this.get('netOwed')
+        Ember.Logger.log(balance)
         if(balance > 0) {
             return "You owe £"
         } else if (balance < 0) {
             return "You are owed £"
+        } else {
+            return "We're square"
         }
-    }.property('newOwed')
+    }.property('newOwed','@each.totalSettled')
 
 })
