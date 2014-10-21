@@ -47,4 +47,12 @@ Feature: As a user I want to be able to
         And that I am on the homepage
         Then I should see "You owe £21.54"
 
+    @javascript @selenium
+    Scenario: The user is told how much they are owed
+        Given  "test1@test.com" uploads a "tv" bill for "50.50" pounds and settles
+        And  "test2@test.com" uploads a "tax" bill for "10.24" pounds and settles
+        And  "test3@test.com" uploads a "phone" bill for "34.60" pounds and settles
+        And that I am on the homepage
+        Then I should see "You are owed £18.72"
+
 
