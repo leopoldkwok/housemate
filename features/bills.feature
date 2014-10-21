@@ -59,4 +59,13 @@ Feature: As a user I want to be able to
     Scenario: The user is told if they don't owe anything
         Then I should see "We're square"
 
+    @javascript @selenium
+    Scenario: The user is told how much to pay each housemate proportionate to the amount each is owed
+        Given  "test1@test.com" uploads a "tv" bill for "10.24" pounds and settles
+        And  "test2@test.com" uploads a "tax" bill for "50.50" pounds and settles
+        And  "test3@test.com" uploads a "phone" bill for "34.60" pounds and settles
+        Then I should see "Pay test2@test.com £18.72"
+        And I should see "Pay test3@test.com £2.82"
+
+
 
