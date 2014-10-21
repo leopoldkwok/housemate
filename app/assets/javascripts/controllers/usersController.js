@@ -31,12 +31,21 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('@each.totalSettled','currentUserId'),
 
     netOwedStr: function(){
-        val = this.get('netOwed').toString();
+        val = Math.abs(this.get('netOwed')).toString();
         if (val.charAt(val.length-2) === ".") {
             return val + '0';
         } else {
             return val;
         }
-    }.property('netOwed')
+    }.property('netOwed'),
+
+    balanceMessage: function(){
+        balance = this.get('netOwed')
+        if(balance > 0) {
+            return "You owe £"
+        } else if (balance < 0) {
+            return "You are owed £"
+        }
+    }.property('newOwed')
 
 })
