@@ -6,7 +6,7 @@
 <ul>
     {{#each itemController='user'}}
             <li>{{email}}</li>
-            {{#if isCurrentUser}} 
+            {{#if isCurrentUser }} 
                 {{#each bill in bills}}
                     {{#with bill}}
                         <li {{bind-attr class="settled:completed"}} >

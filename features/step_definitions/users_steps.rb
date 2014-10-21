@@ -8,6 +8,10 @@ Given(/^"(.*?)" uploads a "(.*?)" bill for "(.*?)" pounds$/) do |user, descripti
   Bill.create(description: description, amount: amount, user_id: User.find_by_email(user).id)
 end
 
+Given(/^"(.*?)" uploads a "(.*?)" bill for "(.*?)" pounds and settles$/) do |user, description, amount|
+  Bill.create(description: description, amount: amount, user_id: User.find_by_email(user).id, settled: true)
+end
+
 Then(/^I am logged in as "(.*?)"$/) do |user|
   current_user = User.find_by_email(user)
   login_as current_user, scope: :user
