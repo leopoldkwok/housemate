@@ -3,33 +3,35 @@
 <button class='add-bill' {{action 'createBill'}} >Add Bill</button>
 
 
+
 <ul>
     {{#each itemController='user'}}
             <li>{{email}}</li>
-            {{#if isCurrentUser }} 
                 {{#each bill in bills}}
-                    {{#with bill}}
-                        <li {{bind-attr class="settled:completed"}} >
-                            {{input type="checkbox" name='settle-check' checked=settled class="toggle"}}
-                            {{description}} £{{adjustedAmount}}
-                            <button {{action "removeBill" id}} class="destroy">X</button>
+                        <li {{bind-attr class="bill.settled:completed"}} >
+                            {{#if isCurrentUser}} 
+                                {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
+                            {{/if}}
+                            {{bill.description}} £{{bill.adjustedAmount}}
+                            {{#if isCurrentUser}} 
+                                <button {{action "bill.removeBill" id}} class="destroy">X</button>
+                            {{/if}}
                         </li>
-                    {{/with}}
                 {{/each}}
-            {{else}}
-                {{#each bill in bills}}
-                    {{#with bill}}
-                        <li {{bind-attr class="settled:completed"}} >
-                            {{description}} £{{adjustedAmount}}
-                        </li>
-                    {{/with}}
-                {{/each}}
-            {{/if}}
             <p>Total Settled: £{{totalSettledStr}}</p>
     {{/each}}
 </ul>
 
 {{balanceMessage}}{{netOwedStr}}
+
+<ul>
+    {{#each itemController='user'}}
+        
+        {{#unless isCurrentUser}} 
+            <li>{{email}} </li>
+        {{/unless}}
+    {{/each}}
+</ul>
 
 
 

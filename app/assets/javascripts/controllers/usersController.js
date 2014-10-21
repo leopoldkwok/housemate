@@ -22,6 +22,14 @@ App.UsersController = Ember.ArrayController.extend({
             this.set('newAmount', '');
         }
     },
+    isCurrentUser: function() {
+        id = this.get('currentUserId').toString();
+        Ember.Logger.log(id)
+        if(this.find('id',id)) {
+            this.set('current', true)
+        };
+        return this.get('current')  
+    }.property('current', 'id', 'currentUserId'),
     netOwed: function(){
         id = this.get('currentUserId').toString();
         userSettled = this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
@@ -43,7 +51,6 @@ App.UsersController = Ember.ArrayController.extend({
 
     balanceMessage: function(){
         balance = this.get('netOwed')
-        Ember.Logger.log(balance)
         if(balance > 0) {
             return "You owe £"
         } else if (balance < 0) {
@@ -52,5 +59,4 @@ App.UsersController = Ember.ArrayController.extend({
             return "We're square"
         }
     }.property('newOwed','@each.totalSettled')
-
 })
