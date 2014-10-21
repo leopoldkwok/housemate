@@ -5,5 +5,6 @@ var attr = DS.attr,
 App.User = DS.Model.extend({
     email:      attr('string'),
     abode_id:   attr('number'),
-    bills:      DS.hasMany('bill')
+    bills:      DS.hasMany('bill'),
+    current:    false
 })
