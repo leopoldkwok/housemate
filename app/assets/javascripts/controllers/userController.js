@@ -21,16 +21,5 @@ App.UserController = Ember.ObjectController.extend({
             bill.set('_changed', false)
             bill.save();
         }
-    }.observes('bills.@each.settled'),
-
-    totalSettled: function() {
-        var bills = this.get('bills').filterBy('settled', true);
-        var sum = function(s1, s2) { return s1 + s2; };
-        var val = bills.getEach('amount').reduce(sum,0).toString();
-        if (val.charAt(val.length-2) === ".") {
-            return val + '0';
-        } else {
-            return val;
-        }
-    }.property('bills.@each.settled')
+    }.observes('bills.@each.settled')
 })
