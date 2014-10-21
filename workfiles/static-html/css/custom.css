@@ -1,20 +1,22 @@
 body {
   padding: 45px 0 0 0;
-  background-color: #E5E1D1;
+  background-color: #FFFFFF; /* background for page */
   font-family: 'Open Sans', sans-serif;
-
 }
 
 h1 {
   margin: 0 0 0 0;
   text-align: center;
   font-family: 'Roboto Slab', serif;
+  font-weight: bolder;
   font-size: 40px;
-  color: #C44741;
+  color: #FFFFFF; /* NAVBAR TEXT */
 }
 
+
 .navbar-inverse {
-  background-color: #2C343B
+  background-color: #000000; /* NAVBAR BACKGROUND */
+  border-color: #000000; 
 }
 
 .navbar-brand {
@@ -44,6 +46,7 @@ h1 {
 h2 {
   font-family: 'Roboto Slab', serif;
   padding: 7px 50px 7px 47px;
+  color: #000000; /* YOUR BILLS TEXT */
 }
 
 h3 {
@@ -62,25 +65,41 @@ form {
   padding: 7px 50px 7px 42px;
 }
 
+.form-control{
+  background-color: #FFFFFF; /* BACKGROUND FOR FORM */
+  color: #FFFFFF;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
 .input-group-addon {
-  background-color: #fff;
+  background-color: #FFFFFF; /* BACKGROUND FOR £ */
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px #000000; 
+  border-left: 0px;
+  box-shadow: none;
 }
 
 a:link, a:hover, a:visited {
   font-weight: bold;
   text-decoration: none;
-  color: #52616D;
+  color: #000000; /* TEXT IN TABLE */
 }
 
 ul.lst {
     list-style-type: none;
     height: 100px;
     margin: 10px 42px 10px 42px;
-    margin-left: 42px;
+    margin-left: 4px;
     margin-right: 42px;
     overflow: auto;
-    background-color: #FFFFFF;
-    border-radius: 5px;
+    background-color: #FFFFFF; /* BACKGROUND FOR TABLE */
+/*    border-radius: 5px;*/
     padding-left: 40px;
     padding-right: 40px;
 }
@@ -88,7 +107,7 @@ ul.lst {
 ul.lst li a {
   display: block;
   padding: 7px 7px 7px 7px;
-  border-bottom: 1px solid #f3f2e8;
+  border-bottom: 1px solid #000000; /* LINES IN TABLE */
   overflow: hidden;
 }
 
@@ -102,7 +121,7 @@ ul.lst li em {
   float: right;
   font-style: normal;
   font-weight: normal;
-  color: #9c836e;
+  color: #000000; /* £ AMOUNTS IN TABLE */
   padding: 0 10px 0 0;
 }
 
@@ -128,34 +147,52 @@ ul.totals li a {
   position: relative;
   padding: 5px;
   z-index: 100;
+  color: #FFFFFF; /* TEXT IN TOTALS */
+
 }
 
 ul.totals li span {
   position: absolute;
   left: 0;
   height: 100%;
-  background: #f3f2e8;
-  border-radius: 5px;
+  background: #000000; /* BACKGROUND % BAR */
+/*  border-radius: 5px;*/
 }
 
 ul.totals li:hover {
   font-size: 30px;
+  border-color: #FFFFFF;
+
 }
 
 .btn-default {
-  background-color: #C44741;
-  color: #fff;
-  font-weight: bold;
+  background-color: #FFFFFF; /* BUTON BACKGROUND */
+  color: #000000; /* TEXT IN BUTONS */
+  font-weight: bolder;
+  font-size: 20px;
+  border-color: #FFFFFF;
+
+}
+
+.btn-group > .btn:first-child {
+  margin-left: 40px;
+  font-size: 30px;
 }
 
 .btn-default:hover{
-  background-color: #C44741;  
+  background-color: #FFFFFF;  /* BUTON BACKGROUND */
+  border-color: #FFFFFF 
+
 }
+
+.open > .dropdown-toggle.btn-default {
+ color: #000000;
+ background-color: #FFFFFF; 
+ border-color: #FFFFFF; 
+}
+
 
 .dropdown-menu{
-  background-color: #C44741;  
-}
-
-.btn-group-bottom {
-  margin-left: 56px;
+  background-color: #FFFFFF;  /* BUTON BACKGROUND */
+  color: #000000; /* TEXT IN BUTONS */
 }
