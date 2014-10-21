@@ -7,10 +7,14 @@ Feature: As a user I want to be able to
 
 
     Background:
-        Given that I am on the homepage
+        Given the following users exist:
+            |      email          |  password   |
+            |   test1@test.com    |   12345678  |
+        And  I am logged in as "test1@test.com"
+        Then that I am on the homepage
 
 
-    @javascript
+    @javascript @selenium
     Scenario: The user can add a bill
         Then I should see a "button" called "Add Bill"
         And I should see an "input" called "Bill"

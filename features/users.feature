@@ -1,4 +1,4 @@
-@users
+ @users
 Feature: As a user I want to be able to see
     my flat's bills but only edit my own bills.
     I don't want my flatmates to edit by bills
