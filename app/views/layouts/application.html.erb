@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>HouseMates</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -12,7 +13,7 @@
 
 </head>
 
-<body>
+  <body>
     <% if user_signed_in? %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     <% else %>
@@ -25,8 +26,5 @@
     
     <%= yield %>
     <main id="ember-app"></main>
-
-
-</body>
-
+  </body>
 </html>
