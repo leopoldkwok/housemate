@@ -7,6 +7,7 @@ App.Bill = DS.Model.extend({
     amount:         attr('number'),
     settled:        attr('boolean'),
     user:           DS.belongsTo('user'),
+    abode_id:       attr(),
 
     adjustedAmount: Ember.computed('amount', function(){
                         var val  = this.get('amount').toString();

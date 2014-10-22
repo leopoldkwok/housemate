@@ -11,10 +11,12 @@ App.UsersController = Ember.ArrayController.extend({
             if (!description.trim()) { return false; };
             id = this.get('currentUserId').toString();
             this.model.store.find('user', id).then(function(user){
+                abode_id = user.get('abode_id');
                 user.get('bills').addObject(user.store.createRecord('bill', {
                     description:    description,
                     amount:         amount,
                     settled:        false,
+                    abode_id:       abode_id,
                     user:           user
                 }))
             });
@@ -22,6 +24,7 @@ App.UsersController = Ember.ArrayController.extend({
             this.set('newAmount', '');
         }
     },
+
     isCurrentUser: function() {
         id = this.get('currentUserId').toString();
         Ember.Logger.log(id)
@@ -30,13 +33,34 @@ App.UsersController = Ember.ArrayController.extend({
         };
         return this.get('current')  
     }.property('current', 'id', 'currentUserId'),
-    netOwed: function(){
+
+    currentUserSettled: function(){
         id = this.get('currentUserId').toString();
-        userSettled = this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
-        amounts = this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
-        flatmates   = this.model.store.all('user').content.length;
-        return Math.round((amounts/flatmates - userSettled)*100)/100
-    }.property('@each.totalSettled','currentUserId'),
+        return this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
+    }.property('currentUserId', 'totalSettled'),
+
+    flatSettled: function() {
+        return this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
+    }.property('@each.totalSettled'),
+
+    numberOfFlatmates: function(){
+        return this.model.store.all('user').content.length;
+    }.property('@each'),
+
+    netOwed: function(){
+        currentUserSettled = this.get('currentUserSettled')
+        amounts = this.get('flatSettled')
+        flatmates   = this.get('numberOfFlatmates')
+        return Math.round((amounts/flatmates - currentUserSettled)*100)/100
+    }.property('@each.totalSettled','flatSettled','currentUserSettled', 'currentUserId','numberOfFlatmates'),
+
+    owedTo: function(user) {
+        user = this.model.store.all('user').filterBy('id',user.id)[0]
+            // totalOwedToUser     = user.get('totalSettled');
+            // flatSettled         = this.get('flatSettled');
+            // currentUserSettled  = this.get('currentUserSettled')
+            // return Math.round((totalOwedToUser/flatSettled * currentUserSettled)*100)/100
+    }.property('totalSettled','flatSettled','currentUserSettled'),
 
     netOwedStr: function(){
         val = Math.abs(this.get('netOwed')).toString();
@@ -58,5 +82,5 @@ App.UsersController = Ember.ArrayController.extend({
         } else {
             return "We're square"
         }
-    }.property('newOwed','@each.totalSettled')
+    }.property('newOwed','@each.totalSettled'),
 })

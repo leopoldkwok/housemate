@@ -25,13 +25,20 @@
 {{balanceMessage}}{{netOwedStr}}
 
 <ul>
+    <tbody>
     {{#each itemController='user'}}
-        
-        {{#unless isCurrentUser}} 
-            <li>{{email}} </li>
-        {{/unless}}
+        <li> {{currentUserSettled}}</li>
     {{/each}}
+    </tbody>
 </ul>
+
+{{!-- <ul>
+    <tbody>
+    {{#each itemController='user'}}
+        <li> {{entireModel}} </li>
+    {{/each}}
+    </tbody>
+</ul> --}}
 
 
 
