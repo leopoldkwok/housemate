@@ -22,9 +22,10 @@ h1 {
 }
 
 .navbar-brand img {
-  padding: 0 0 0 0;
+  padding: 3px 0 0 0;
   position: left;
-  width: 45px;
+  height: 40;
+  width: 40px;
 }
 
 #brand {
@@ -38,11 +39,12 @@ h1 {
 }
 
 .navbar-menu img {
+  margin: 6px 0 0 0;
   position: absolute;
   right: 10px;
-  top: 2px;
-  height: 45px;
-  width: 45px;
+  top: 0px;
+  height: 40px;
+  width: 40px;
   padding: 0px 0px 0px 0px;
 }
 
