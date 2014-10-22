@@ -26,6 +26,7 @@ h1 {
   position: left;
   height: 40;
   width: 40px;
+  margin-left: 20px;
 }
 
 #brand {
@@ -46,13 +47,14 @@ h1 {
   height: 40px;
   width: 40px;
   padding: 0px 0px 0px 0px;
+  margin-right: 20px;
 }
 
 .dropdown-menu{
     border-radius: 0px;
   background-color: #6BD791;
-  border-width: 1px;
-  border-color: #2A2A2A;
+ /* border-width: 1px;
+  border-color: #2A2A2A;*/
   margin-bottom: 14px;
 }
 
@@ -79,15 +81,15 @@ h3 {
 }
 
 h4 {
-  padding: 7px 50px 7px 47px;
+  padding: 7px 50px 7px 47px; /* Quote text author in sign_up */
 }
 
-h5 {
+/*h5 {
   font-size: 20px;
   font-weight: bold;
   padding: 50px 50px 7px 47px;
   color: #2A2A2A;
-}
+}*/
 
 p {
   font-size: 20px;
@@ -124,10 +126,9 @@ form.input:focus::-webkit-input-placeholder
 @media (min-width: 768px) {
   .form-inline .form-group {
     margin-bottom: 15px;
-
   }
 } 
- 
+
 .form-control:focus::-webkit-input-placeholder {
   transition: text-indent 0.5s 0.5s ease; 
   text-indent: -100%;
@@ -159,12 +160,6 @@ form.input:focus::-webkit-input-placeholder
   margin-bottom: 14px;
 }
 
-/*@media (min-width:768px.) { 
-  .btn-default {
-  border-radius: 0px;
-  background-color: #6BD791;
-  border-color: #2A2A2A;
-}*/
 
 a:link, a:hover, a:visited {
   font-weight: bold;
@@ -221,12 +216,13 @@ ul.totals{
   list-style-type: none;
   display: block;
   font-size: 20px;
-  text-indent:  0px;
+  text-indent: 0px;
   font-family: 'Open Sans', sans-serif;
-  border-top: 1px solid #161616;
-  margin: 0px 80px 0px 39px;
-  padding-left: 0px;
-}
+  margin: 0px 87px 0px 0px;
+  padding-left: 40px;
+  border: 1px;
+  border-color: #000000;
+  }
 
 ul.totals li {
   position: relative;
@@ -249,6 +245,7 @@ ul.totals li span {
   position: absolute;
   left: 0;
   height: 100%;
+  background-color:#eee;
   background: #6BD791; /* BACKGROUND % BAR */
 }
 
@@ -257,61 +254,23 @@ ul.totals li:hover {
   border-color: #FFFFFF;
 }
 
-ul.pay {
-  color: #2A2A2A;
-  text-align: left;
-  display: inline;
-  margin: 57px;
-  padding: 15px 4px 17px 0;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #2A2A2A;
+.btn-group > .btn:first-child {
+margin-left: 56px;
 }
-ul.pay li {
-  display: inline-block;
-  margin-right: -4px;
-  position: relative;
-  padding: 15px 20px;
-  background: #fff;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  transition: all 0.2s;
+.btn-group.open .dropdown-toggle {
+-webkit-box-shadow: none; 
+box-shadow: inset none; 
+background-color: #fff;
+border-color: #000000;
 }
-ul.pay li:hover {
-  background: #555;
-  color: #fff;
-}
-ul.pay   li ul {
-  padding: 0;
-  position: absolute;
-  box-shadow: none;
-  top: 48px;
-  left: -1px;
-  width: 181px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transiton: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -ms-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  -transition: opacity 0.2s;
-}
-ul.pay   li ul li { 
-  background: #6BD791; 
-  display: block; 
-  color: #fff;
-/*  text-shadow: 0 -1px 0 #000;
-*/}
-ul.pay li ul li:hover { background: #666; }
-ul li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility: visible;
+
+#pay {
+  margin: -15px 0px 0;
+  border-radius: 0px;
+  border-color: #000000;
+  background-color: #6BD791;
+ /* border-width: 1px;
+  border-color: #2A2A2A;*/
+  margin-bottom: 14px;
+  width: 75%;
 }

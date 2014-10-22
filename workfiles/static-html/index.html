@@ -57,22 +57,20 @@
           </div>
           <ul class="totals">
             <li><a href="#">Your bills paid</a><span style="width: 2%;"></span></li>
-            <li><a href="#">House bills paid</a><span style="width: 60%;"></span></li>
+            <li><a href="#">House bills paid</a><span style="width: 100%;"></span></li>
           </ul>
         </div><!-- End of main container --> 
       <footer>
-        <div >
-          <ul class="pay">
-            <li>
-              Pay your housemates
-              <ul>
-                <li>Pay Tom</li>
-                <li>Pay Dick</li>
-                <li>Pay Harry</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Pay your housemates
+        </button>
+        <ul class="dropdown-menu pull-right" id="pay" role="menu">
+          <li><a href="#">Pay Tom</a></li>
+          <li><a href="#">Pay Dick</a></li>
+          <li><a href="#">Pay Harry</a></li>
+        </ul>
+      </div>
       </footer>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
