@@ -11,21 +11,19 @@
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
     <header>
    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-          <div class="col-xs-4 col-md-4"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a>
-          </div>
-          <div class="navbar-header col-xs-4 col-md-4"><h1>HouseMate</h1></div>
-          <div><a href="#" class="navbar-menu col-xs-4 col-md-4" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Settings</a></li>
-              <li class="divider"></li>
-              <li><a href="#">All bills</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Pay Housemates</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Sign out</a></li>
-            </ul>
-          </div>
+        <div id="brand" class="col-xs-2 col-md-2"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a>
+        </div>
+        <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
+        <div><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="#">All bills</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Pay Housemates</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Sign out</a></li>
+          </ul>
         </div>
       </div><!-- End of nav bar -->
     </header>
@@ -44,7 +42,7 @@
           <div class="form-group">
             <label class="sr-only" for="city">city:</label>
             <input type="city" class="form-control" id="city" placeholder="City">
-          </div>
+          </div><br/>
            <div class="form-group">
             <label class="sr-only" for="county">county:</label>
             <input type="county" class="form-control" id="county" placeholder="County">
