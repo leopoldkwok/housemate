@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-  margin: 7px 0 0 0;
+  margin: 10px 0 0 0;
   text-align: center;
   font-family: 'Roboto Slab', serif;
   font-size: 30px;
@@ -18,12 +18,17 @@ h1 {
 }
 
 .navbar-brand {
-  padding: 3px 0px 0px 12px;
+  padding: 3px 0px 0px 0px;
 }
 
 .navbar-brand img {
+  padding: 0 0 0 0;
   position: left;
   width: 45px;
+}
+
+#brand {
+  padding: 0 0 0 10px;
 }
 
 .navbar-header {
@@ -34,8 +39,8 @@ h1 {
 
 .navbar-menu img {
   position: absolute;
+  right: 10px;
   top: 2px;
-  right: 12px;
   height: 45px;
   width: 45px;
   padding: 0px 0px 0px 0px;

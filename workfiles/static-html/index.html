@@ -11,22 +11,20 @@
   <body>
   <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
     <header>
-   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-          <div class="col-xs-4 col-md-4"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a>
-          </div>
-          <div class="navbar-header col-xs-4 col-md-4"><h1>HouseMate</h1></div>
-          <div><a href="#" class="navbar-menu col-xs-4 col-md-4" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Settings</a></li>
-              <li class="divider"></li>
-              <li><a href="#">All bills</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Pay Housemates</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Sign out</a></li>
-            </ul>
-          </div>
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id="brand" class="col-xs-2 col-md-2"><a class="navbar-brand" href="#"><img src="img/HouseMate-logo.png"></a>
+        </div>
+        <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
+        <div><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="img/Menu-logo.png"></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="#">All bills</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Pay Housemates</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Sign out</a></li>
+          </ul>
         </div>
       </div><!-- End of nav bar -->
     </header>
@@ -59,29 +57,26 @@
             <li><a href="#"><span>Sky</span> <em>£54.00</em></a></li>
             <li><a href="#"><span>Netflix</span> <em>£12.99</em></a></li>
           </ul>
+          </div>
+          <ul class="totals">
+            <li><a href="#">Your bills paid</a><span style="width: 2%;"></span></li>
+            <li><a href="#">House bills paid</a><span style="width: 60%;"></span></li>
+          </ul>
+        </div><!-- End of main container --> 
+      <footer>
+        <div >
+          <ul class="pay">
+            <li>
+              Pay your housemates
+              <ul>
+                <li>Pay Tom</li>
+                <li>Pay Dick</li>
+                <li>Pay Harry</li>
+              </ul>
+            </li>
+          </ul>
         </div>
-
-      <ul class="totals">
-        <li><a href="#">Your bills paid</a><span style="width: 2%;"></span></li>
-        <li><a href="#">House bills paid</a><span style="width: 60%;"></span></li>
-      </ul>
-    </div><!-- End of main container --> 
-
-    <footer>
-      <div >
-        <ul class="pay">
-          <li>
-            Pay your housemates
-            <ul>
-              <li>Pay Tom</li>
-              <li>Pay Dick</li>
-              <li>Pay Harry</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </footer>
-
+      </footer>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
 </html>
