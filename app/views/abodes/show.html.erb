@@ -1,6 +1,7 @@
 <%= @abode.name_number %> 
 <%= @abode.street %>
 
+
 Add housemate
 
 <%= form_tag("/abodes/add_user", method: "post") do %>
@@ -9,3 +10,4 @@ Add housemate
 
   <%= submit_tag("Add housemate") %>
 <% end %>
+
