@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users
+  # , :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => 'home#index'
 
   # for some reason needed this.
     devise_scope :user do
+      get 'users/sign_in' => 'devise/sessions#new'
       get 'users/sign_out' => "devise/sessions#destroy"
     end
-
+    resources :users, only: [:index]
 
     resources :abodes
+    post "abodes/add_user" => "abodes#add_user"
 
 
   # get 'assets/index'
@@ -29,8 +32,6 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
-    resources :abodes
 
 resources :bills
 

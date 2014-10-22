@@ -1,0 +1,37 @@
+{{input type='text' id='input-bill' name='Bill' placeholder="Bill" value=newDescription}}
+{{input type='text' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
+<button class='add-bill' {{action 'createBill'}} >Add Bill</button>
+
+
+
+<ul>
+    {{#each itemController='user'}}
+            <li>{{email}}</li>
+                {{#each bill in bills}}
+                        <li {{bind-attr class="bill.settled:completed"}} >
+                            {{#if isCurrentUser}} 
+                                {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
+                            {{/if}}
+                            {{bill.description}} £{{bill.adjustedAmount}}
+                            {{#if isCurrentUser}} 
+                                <button {{action "bill.removeBill" id}} class="destroy">X</button>
+                            {{/if}}
+                        </li>
+                {{/each}}
+            <p>Total Settled: £{{totalSettledStr}}</p>
+    {{/each}}
+</ul>
+
+{{balanceMessage}}{{netOwedStr}}
+
+<ul>
+    {{#each itemController='user'}}
+        
+        {{#unless isCurrentUser}} 
+            <li>{{email}} </li>
+        {{/unless}}
+    {{/each}}
+</ul>
+
+
+

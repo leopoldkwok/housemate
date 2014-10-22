@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015143331) do
+ActiveRecord::Schema.define(version: 20141019140343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20141015143331) do
     t.string   "postcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "abodes", ["user_id"], name: "index_abodes_on_user_id", using: :btree
 
   create_table "bills", force: true do |t|
     t.string   "description"
@@ -33,9 +36,14 @@ ActiveRecord::Schema.define(version: 20141015143331) do
     t.decimal  "amount",        precision: 8, scale: 2
     t.integer  "supplier_id"
     t.string   "supplier_type"
+    t.boolean  "settled",                               default: false
+    t.integer  "user_id"
+    t.integer  "abode_id"
   end
 
+  add_index "bills", ["abode_id"], name: "index_bills_on_abode_id", using: :btree
   add_index "bills", ["supplier_id", "supplier_type"], name: "index_bills_on_supplier_id_and_supplier_type", using: :btree
+  add_index "bills", ["user_id"], name: "index_bills_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +60,8 @@ ActiveRecord::Schema.define(version: 20141015143331) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "abode_id"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

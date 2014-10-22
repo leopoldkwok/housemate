@@ -11,9 +11,17 @@ $(document).ready(function() {
     });
 });
 // for more details see: http://emberjs.com/guides/application/
-App = Ember.Application.create({rootElement: '#ember-app'});
+var App = Ember.Application.create({
+        rootElement: '#ember-app',
+        LOG_TRANSITIONS: true,
+        LOG_TRANSITIONS_INTERNAL: true,
+        LOG_VIEW_LOOKUPS: true
+
+});
 
 //= require_tree .
+
+
 
 
 
