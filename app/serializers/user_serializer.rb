@@ -1,6 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email
+  attributes :id, :email, :abode_id
     embed :ids, include: true
 
     has_many :bills
+    has_many :flatbills
 end

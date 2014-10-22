@@ -6,8 +6,9 @@ var sum = function(s1, s2) { return s1 + s2; };
 
 App.User = DS.Model.extend({
     email:      attr('string'),
-    abode_id:   attr('number'),
+    abode_id:   attr(),
     bills:      DS.hasMany('bill'),
+    flatbills:  DS.hasMany('flatbill'),
     current:    false,
     totalSettled: function() {
         bills = this.get('bills').filterBy('settled', true);

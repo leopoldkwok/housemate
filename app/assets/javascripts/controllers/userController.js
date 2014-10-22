@@ -1,3 +1,5 @@
+var sum = function(s1, s2) { return s1 + s2; };
+
 App.UserController = Ember.ObjectController.extend({
     needs: ['currentUser'],
     currentUserId: Ember.computed.alias('controllers.currentUser.id'),
@@ -21,5 +23,14 @@ App.UserController = Ember.ObjectController.extend({
             bill.set('_changed', false)
             bill.save();
         }
-    }.observes('bills.@each.settled')
+    }.observes('bills.@each.settled'),
+
+    currentUserSettled: function(){
+        id = this.get('currentUserId');
+        Ember.Logger.log(id)
+        Ember.Logger.log(this.get('flatbills').filterBy('true_user_id', id))
+        return this.get('flatbills').filterBy('true_user_id',id).filterBy('settled').mapBy('amount').reduce(sum,0)
+    }.property('currentUserId', 'totalSettled', 'flatbills.@each.true_user_id','flatbills.@each.settled', 'bills.@each.settled')
+
+
 })
