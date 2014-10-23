@@ -15,9 +15,25 @@
  */
 
 
-
 .completed{
     text-decoration: line-through;
+}
+
+/*input[type=checkbox] {
+ visibility: hidden;
+}*/
+
+.bill-description {
+  display: inline-block;
+}
+
+.paid {
+  float: left;
+  display: inline-block;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin: 0px;
 }
 
 body {
@@ -181,7 +197,6 @@ form.input:focus::-webkit-input-placeholder
 */  margin-bottom: 14px;
 }
 
-
 a:link, a:hover, a:visited {
   font-weight: bold;
   text-decoration: none;
@@ -204,7 +219,7 @@ ul.lst {
 
 ul.lst li a {
   display: block;
-  padding: 7px 7px 7px 7px;
+  padding: 7px 50px 7px 50px;
   border-bottom: 1px solid #161616; /* LINES IN TABLE */
   overflow: hidden;
 }
@@ -220,7 +235,7 @@ ul.lst li em {
   font-style: normal;
   font-weight: normal;
   color: #2A2A2A; /* £ AMOUNTS IN TABLE */
-  padding: 0 10px 0 0;
+  padding: 0px 0px 0px 0px;
 }
 
 ul.lst::-webkit-scrollbar {
@@ -231,6 +246,21 @@ ul.lst::-webkit-scrollbar {
 ul.lst::-webkit-scrollbar-thumb {
     border-radius: 0px;
     background-color: #161616;
+}
+
+ul.lst li span {
+  float: none;
+}
+
+.bill-description {
+  display: inline-block;
+}
+
+.glyphicon {
+  float: right;
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 0px;
 }
 
 ul.totals{
