@@ -31,9 +31,11 @@
 <ul>
     <tbody>
     {{#each itemController='user'}}
-        {{#unless isCurrentUser}}
-            <li> {{paymentMessage}}{{paymentDisplayAmount}}</li>
-        {{/unless}}
+        {{#if paymentDisplayAmount}}
+            {{#unless isCurrentUser}}
+                <li> {{paymentMessage}}{{paymentDisplayAmount}}</li>
+            {{/unless}}
+        {{/if}}
     {{/each}}
     </tbody>
 </ul>
