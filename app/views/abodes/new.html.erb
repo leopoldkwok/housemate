@@ -1,52 +1,102 @@
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
-     <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div id="brand" class="col-xs-2 col-md-2"><a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
-        </div>
-        <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
-        <div><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="img/Menu.png"></a>
-          <ul class="dropdown-menu pull-right" role="menu">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">All bills</a></li>
-            <li><a href="#">Pay Housemates</a></li>
-            <li><a href="#">Sign out</a></li>
-          </ul>
-        </div>
-      </div><!-- End of nav bar -->
-    </header>
-        <div class="container-fluid">
-          <p>Enter your home details here</p> <!-- enter home details -->
 
-<%= form_for @abode, :html=> {:class => "form-inline", :role => "form"} do |f| %>
-  <div class="form-group">
-    <%= f.label :name_number, class: "sr-only col-xs-12 col-lg-4" %>
-    <div class="col-xs-8">
-      <%= f.text_field :name_number, class: "form-control", placeholder: "House name / number" %>
-     </div>
-  </div>      
-  <div class="form-group">
-    <%= f.label :street, class: "sr-only col-xs-12 col-lg-4" %>
-    <div class="col-xs-8">
-      <%= f.text_field :street, class: "form-control", placeholder: "Street" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :city, class: "sr-only col-xs-12 col-lg-4" %>
-    <div class="col-xs-8">
-      <%= f.text_field :city, class: "form-control", placeholder: "City" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :county, class: "sr-only col-xs-12 col-lg-4" %>
-    <div class="col-xs-8">
-      <%= f.text_field :county, class: "form-control", placeholder: "County" %>
-    </div>
-  </div>    
-  <div class="form-group">
-    <%= f.label :postcode, class: "sr-only col-xs-12 col-lg-4" %>
-    <div class="col-xs-8">
-      <%= f.text_field :postcode, class: "form-control", placeholder: "Postcode" %>
-    </div>
-  </div>    
-  <%= f.submit "Submit", class: "btn btn-default" %>
-<% end %>
+<div class="container-fluid">
+  
+  <p>Enter your home details here</p> <!-- enter home details -->
+
+  <section>
+    <%= form_for @abode, :html=> {:class => "form-inline", :role => "form"} do |f| %>
+
+      <div class="form-group col-xs-12 col-lg-4" %>
+        <%= f.label :name_number, class: "sr-only col-xs-4" %>
+        <div class="col-xs-8">
+          <%= f.text_field :name_number, class: "form-control", placeholder: "Home name / number" %>
+         </div>
+      </div>      
+      <div class="form-group col-xs-12 col-lg-4" %>
+        <%= f.label :street, class: "sr-only col-xs-4" %>
+        <div class="col-xs-8">
+          <%= f.text_field :street, class: "form-control", placeholder: "Street" %>
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-lg-4" %>
+        <%= f.label :city, class: "sr-only col-xs-4" %>
+        <div class="col-xs-8">
+          <%= f.text_field :city, class: "form-control", placeholder: "City" %>
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-lg-4" %>
+        <%= f.label :county, class: "sr-only col-xs-4" %>
+        <div class="col-xs-8">
+          <%= f.text_field :county, class: "form-control", placeholder: "County" %>
+        </div>
+      </div>    
+      <div class="form-group col-xs-12 col-lg-4" %>
+        <%= f.label :postcode, class: "sr-only col-xs-4" %>
+        <div class="col-xs-8">
+          <%= f.text_field :postcode, class: "form-control", placeholder: "Postcode" %>
+        </div>
+      </div>    
+      <div class="form-group col-xs-12 col-lg-4" %>
+          <%= f.submit "Submit", class: "btn btn-default col-xs-8" %>
+      </div>
+    <% end %>
+  </section>
+</div>
+
+<div class="container-fluid">
+
+  <p>Add your HouseMates</p>
+  
+  <section>
+    <%= form_tag("/abodes/add_user", method: "post") do %>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
+        <div class="col-xs-6">
+          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
+        </div>
+      </div>   
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
+      </div>
+    <% end %>
+
+     <%= form_tag("/abodes/add_user", method: "post") do %>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
+        <div class="col-xs-6">
+          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
+        </div>
+      </div>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
+      </div>
+    <% end %>
+
+
+     <%= form_tag("/abodes/add_user", method: "post") do %>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
+        <div class="col-xs-6">
+          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
+        </div>
+      </div>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
+      </div>
+    <% end %>
+
+     <%= form_tag("/abodes/add_user", method: "post") do %>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
+        <div class="col-xs-6">
+          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
+        </div>
+      </div>
+      <div class="form-group col-xs-6 col-sm-3">
+        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
+      </div>
+    <% end %>
+  </section>
+</div>
+

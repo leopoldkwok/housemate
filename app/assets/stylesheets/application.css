@@ -118,7 +118,7 @@ p {
   padding: 7px 50px 7px 47px;
   height: 30px;
   color: #2A2A2A;
-  margin: 50px -6px 15px;
+  margin: 50px 8px 15px;
 } /*Enter home and  housemates in abode */ 
 
 form {
@@ -190,7 +190,7 @@ a:link, a:hover, a:visited {
 
 ul.lst {
     list-style-type: none;
-    height: 100px;
+    height: 300px;
     margin: 10px 42px 10px 42px;
     margin-top: 30px;
     margin-left: 4px;
