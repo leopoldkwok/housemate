@@ -118,7 +118,7 @@ p {
   padding: 7px 50px 7px 47px;
   height: 30px;
   color: #2A2A2A;
-  margin: 50px -6px 15px;
+  margin: 50px 8px 15px;
 } /*Enter home and  housemates in abode */ 
 
 form {
@@ -150,10 +150,10 @@ form.input:focus::-webkit-input-placeholder
   }
 } 
 
-.form-control:focus::-webkit-input-placeholder {
-  transition: text-indent 0.5s 0.5s ease; 
-  text-indent: -100%;
-  opacity: 1;
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .form-control{
