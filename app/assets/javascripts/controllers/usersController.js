@@ -40,7 +40,7 @@ App.UsersController = Ember.ArrayController.extend({
             Ember.set(item, 'currentUserSettled', number)
         })
         return number
-    }.property('currentUserId', 'totalSettled', 'currentUserSettled'),
+    }.property('currentUserId', '@each.totalSettled', '@each.currentUserSettled'),
 
     currentUserDelta: function(){
         var number = (this.get('currentUserSettled') - this.get('averageSettled'));

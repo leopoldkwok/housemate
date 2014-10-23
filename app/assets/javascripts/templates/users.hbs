@@ -22,19 +22,21 @@
     {{/each}}
 </ul>
 
+
+<div></div>
 {{balanceMessage}}{{netOwedStr}}
 
-[{{totalPositiveDelta}}] {{averageSettled}}, current user delta: [{{currentUserDelta}}], currentUserSettled: [{{currentUserSettled}}], average settled: [{{averageSettled}}]
+
 
 <ul>
     <tbody>
     {{#each itemController='user'}}
-
             <li> {{paymentMessage}}{{paymentDisplayAmount}}</li>
-
     {{/each}}
     </tbody>
 </ul>
+
+[Black Magic = {{totalPositiveDelta}} & {{currentUserDelta}}]
 
 
 
