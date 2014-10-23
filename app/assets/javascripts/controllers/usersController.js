@@ -26,8 +26,7 @@ App.UsersController = Ember.ArrayController.extend({
     },
 
     isCurrentUser: function() {
-        id = this.get('currentUserId').toString();
-        Ember.Logger.log(id)
+        var id = this.get('currentUserId').toString();
         if(this.find('id',id)) {
             this.set('current', true)
         };
@@ -35,17 +34,59 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('current', 'id', 'currentUserId'),
 
     currentUserSettled: function(){
-        id = this.get('currentUserId').toString();
-        return this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
-    }.property('currentUserId', 'totalSettled'),
+        var id = this.get('currentUserId').toString();
+        var number =  this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'currentUserSettled', number)
+        })
+        return number
+    }.property('currentUserId', 'totalSettled', 'currentUserSettled'),
+
+    currentUserDelta: function(){
+        var number = (this.get('currentUserSettled') - this.get('averageSettled'));
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'currentUserDelta', number)
+        })
+        return number
+    }.property('@each', 'currentUserSettled', 'averageSettled', '@each.currentUserDelta'),
 
     flatSettled: function() {
-        return this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
+        var number = this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'flatSettled', number)
+        })
+        return number
     }.property('@each.totalSettled'),
 
     numberOfFlatmates: function(){
-        return this.model.store.all('user').content.length;
-    }.property('@each'),
+        var number = this.model.store.all('user').content.length;
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'numberOfFlatmates', number)
+        })
+        return number;
+    }.property('@each', 'numberOfFlatmates'),
+
+    totalPositiveDelta: function() {
+        var number = this.model.store.all('user').getEach('positiveDelta').reduce(sum,0);
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'totalPositiveDelta', number)
+        })
+        return number
+    }.property('@each.positiveDelta', 'totalPositiveDelta'),
+
+    averageSettled: function() {
+        var number = this.get('flatSettled') / this.get('numberOfFlatmates')
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'averageSettled', number)
+        })
+        return number
+    }.property('flatSettled', '@each.averageSettled'),
+
+    _getPositives: function(value) {
+        if (value > 0) {
+            return value
+        }
+    },
 
     netOwed: function(){
         currentUserSettled = this.get('currentUserSettled')
@@ -53,14 +94,6 @@ App.UsersController = Ember.ArrayController.extend({
         flatmates   = this.get('numberOfFlatmates')
         return Math.round((amounts/flatmates - currentUserSettled)*100)/100
     }.property('@each.totalSettled','flatSettled','currentUserSettled', 'currentUserId','numberOfFlatmates'),
-
-    owedTo: function(user) {
-        user = this.model.store.all('user').filterBy('id',user.id)[0]
-            // totalOwedToUser     = user.get('totalSettled');
-            // flatSettled         = this.get('flatSettled');
-            // currentUserSettled  = this.get('currentUserSettled')
-            // return Math.round((totalOwedToUser/flatSettled * currentUserSettled)*100)/100
-    }.property('totalSettled','flatSettled','currentUserSettled'),
 
     netOwedStr: function(){
         val = Math.abs(this.get('netOwed')).toString();
@@ -82,5 +115,5 @@ App.UsersController = Ember.ArrayController.extend({
         } else {
             return "We're square"
         }
-    }.property('newOwed','@each.totalSettled'),
+    }.property('newOwed','@each.totalSettled')
 })

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_many :bills
-  has_many :flatbills
   belongs_to :abode
 
   devise :database_authenticatable, :registerable,

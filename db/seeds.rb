@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Bill.destroy_all
-Flatbill.destroy_all
 User.destroy_all
 Abode.destroy_all
 
@@ -23,13 +22,7 @@ Abode.destroy_all
 @electricity    = Bill.create(description: "Electricity", amount: 45.30, user_id: @test1.id, abode_id: @test1.abode_id)
 @tv             = Bill.create(description: "TV", amount: 15.75, user_id: @test2.id, abode_id: @test2.abode_id)
 
-@gas1            = Flatbill.create(bill_id: @gas.id, user_id: @test1.id, description: "Gas", amount: 20.25, true_user_id: @test1.id, abode_id: @test1.abode_id, settled: true)
-@electricity1    = Flatbill.create(bill_id: @electricity.id, user_id: @test1.id, description: "Electricity", amount: 45.30, true_user_id: @test1.id, abode_id: @test1.abode_id)
-@tv1             = Flatbill.create(bill_id: @tv.id, user_id: @test1.id, description: "TV", amount: 15.75, true_user_id: @test2.id, abode_id: @test2.abode_id)
 
-@gas2            = Flatbill.create(bill_id: @gas.id, user_id: @test2.id, description: "Gas", amount: 20.25, true_user_id: @test1.id, abode_id: @test1.abode_id, settled: true)
-@electricity2    = Flatbill.create(bill_id: @electricity.id, user_id: @test2.id, description: "Electricity", amount: 45.30, true_user_id: @test1.id, abode_id: @test1.abode_id)
-@tv2             = Flatbill.create(bill_id: @tv.id, user_id: @test2.id, description: "TV", amount: 15.75, true_user_id: @test2.id, abode_id: @test2.abode_id)
 
 
 

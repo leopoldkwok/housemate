@@ -10,22 +10,15 @@ respond_to :json
   end
 
   def create
-    @bill = Bill.create(bill_params)
-    userids = User.where(abode_id: current_user.abode_id).map {|user| user.id}
-    userids.each {|instance| Flatbill.create(user_id: instance, bill_id: @bill.id, description: @bill.description, amount: @bill.amount, settled: @bill.settled, true_user_id: @bill.user_id, abode_id: @bill.abode_id)}
-    respond_with @bill
+   respond_with Bill.create(bill_params)
   end
 
   def update
-    @bill = bill.update(bill_params)
-    Flatbill.where(bill_id: bill.id).each {|row| row.update(description: bill.description, amount: bill.amount, settled: bill.settled)}
-    respond_with @bill
+    respond_with bill.update(bill_params)
   end
 
   def destroy
-    @bill = Bill.find(params[:id])
-    Flatbill.where(bill_id: @bill.id).each {|row| row.destroy}
-    respond_with @bill.destroy
+    respond_with bill.destroy
   end
 
   private

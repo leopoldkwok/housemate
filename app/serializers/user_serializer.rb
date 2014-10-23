@@ -3,5 +3,4 @@ class UserSerializer < ActiveModel::Serializer
     embed :ids, include: true
 
     has_many :bills
-    has_many :flatbills
 end

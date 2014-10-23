@@ -1,4 +1,4 @@
-var sum = function(s1, s2) { return s1 + s2; };
+// var sum = function(s1, s2) { return s1 + s2; };
 
 App.UserController = Ember.ObjectController.extend({
     needs: ['currentUser'],
@@ -25,12 +25,33 @@ App.UserController = Ember.ObjectController.extend({
         }
     }.observes('bills.@each.settled'),
 
-    currentUserSettled: function(){
-        id = this.get('currentUserId');
-        Ember.Logger.log(id)
-        Ember.Logger.log(this.get('flatbills').filterBy('true_user_id', id))
-        return this.get('flatbills').filterBy('true_user_id',id).filterBy('settled').mapBy('amount').reduce(sum,0)
-    }.property('currentUserId', 'totalSettled', 'flatbills.@each.true_user_id','flatbills.@each.settled', 'bills.@each.settled')
+    _getDelta: function(settledAmount) {
+       return (settledAmount - this.get('averageSettled'))
+    }.property('averageSettled'),
 
+    amountCurrentUserOwesFlatmate: function() {
+       return this.get('currentUserDelta') * this.get('positiveDelta') / this.get('totalPositiveDelta')
+    }.property('currentUserDelta', 'positiveDelta', 'totalPositiveDelta'),
+
+    amountFlatmateOwesCurrentUser: function() {
+       return this.get('currentUserDelta') * this.get('negativeDelta') / this.get('totalNegativeDelta')
+    }.property('currentUserDelta', 'negativeDelta', 'totalNegativeDelta'),
+
+    paymentDisplayAmount: function() {
+        var amount = this.get('amountCurrentUserOwesFlatmate') + this.get('amountFlatmateOwesCurrentUser')
+        if (amount > 0){
+            return amount
+        }
+    }.property('amountCurrentUserOwesFlatmate', 'amountFlatmateOwesCurrentUser'),
+
+    paymentMessage: function() {
+        if (this.get('amountCurrentUserOwesFlatmate') > 0) {
+            return "Pay " + this.get('email') + " £"
+        } else if (this.get('amountFlatmateOwesCurrentUser') > 0) {
+            return this.get('email') + " owes you £"
+        }
+    }.property('amountCurrentUserOwesFlatmate', 'amountFlatmateOwesCurrentUser', 'email')
 
 })
+
+

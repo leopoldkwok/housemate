@@ -6,7 +6,7 @@
 
 <ul>
     {{#each itemController='user'}}
-            <li>{{email}}</li>
+            <li>{{email}} </li>
                 {{#each bill in bills}}
                         <li {{bind-attr class="bill.settled:completed"}} >
                             {{#if isCurrentUser}} 
@@ -14,7 +14,7 @@
                             {{/if}}
                             {{bill.description}} £{{bill.adjustedAmount}}
                             {{#if isCurrentUser}} 
-                                <button {{action "bill.removeBill" id}} class="destroy">X</button>
+                                <button {{action "removeBill" bill.id}} class="destroy">X</button>
                             {{/if}}
                         </li>
                 {{/each}}
@@ -24,21 +24,17 @@
 
 {{balanceMessage}}{{netOwedStr}}
 
+[{{totalPositiveDelta}}] {{averageSettled}}, current user delta: [{{currentUserDelta}}], currentUserSettled: [{{currentUserSettled}}], average settled: [{{averageSettled}}]
+
 <ul>
     <tbody>
     {{#each itemController='user'}}
-        <li> {{currentUserSettled}}</li>
+
+            <li> {{paymentMessage}}{{paymentDisplayAmount}}</li>
+
     {{/each}}
     </tbody>
 </ul>
-
-{{!-- <ul>
-    <tbody>
-    {{#each itemController='user'}}
-        <li> {{entireModel}} </li>
-    {{/each}}
-    </tbody>
-</ul> --}}
 
 
 
