@@ -13,10 +13,16 @@ App.User = DS.Model.extend({
     averageSettled:     attr(),
     totalPositiveDelta: attr('number'),
     currentUserDelta:   attr(),
+    totalBills: function() {
+        return this.get('bills').getEach('amount').reduce(sum,0)
+    }.property('bills.@each.amount'),
     totalSettled: function() {
         bills = this.get('bills').filterBy('settled', true);
         return bills.getEach('amount').reduce(sum,0)
     }.property('bills.@each.settled'),
+    percentageSettled: function(){
+        return (this.get('totalSettled') / this.get('totalBills'))
+    }.property('totalSettled', 'totalBills'),
     deltaSettled: function() {
         return (this.get('totalSettled') - this.get('averageSettled'))
     }.property('totalSettled','averageSettled'),
