@@ -4,6 +4,9 @@ gem 'devise'
 gem 'devise_invitable'
 # gem 'omniauth-facebook'
 
+gem 'paypal-sdk-adaptivepayments'
+gem 'pp-adaptive'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -46,8 +49,6 @@ gem 'spring',        group: :development
 gem "active_model_serializers"
 gem "ember-rails", "~>0.14"
 gem "ember-source", "~>1.1"
-
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 group :production do
