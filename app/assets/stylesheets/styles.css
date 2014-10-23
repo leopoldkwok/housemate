@@ -161,8 +161,8 @@ form.input:focus::-webkit-input-placeholder
   border-radius: 0px;
   background-color: #6BD791;
   border-width: 1px;
-  border-color: #2A2A2A;
-  margin-bottom: 14px;
+/*  border-color: #2A2A2A;
+*/  margin-bottom: 14px;
 }
 
 
