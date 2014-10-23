@@ -25,7 +25,7 @@ App.UserController = Ember.ObjectController.extend({
 
     amountCurrentUserOwesFlatmate: function() {
         if (this.get('currentUserDelta') < 0) {
-            return this.get('currentUserDelta') * this.get('positiveDelta') / this.get('totalPositiveDelta')
+            return - this.get('currentUserDelta') * this.get('positiveDelta') / this.get('totalPositiveDelta')
         } else {
             return 0
         }

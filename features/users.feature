@@ -20,14 +20,14 @@ Feature: As a user I want to be able to see
 
     @javascript
     Scenario: The user can see other users' bills
-        Then I should see "tv £50.50" 
-        And I should see "tax £34.60"
+        Then I should see "tv£50.50" 
+        And I should see "tax£34.60"
 
     @javascript
     Scenario: The user can only edit their own bills
         Then I should see '1' buttons called "X" 
         And click the button "X"
-        Then I should see "tax £34.60"
+        Then I should see "tax£34.60"
         And I should see '0' buttons called "X"
 
 

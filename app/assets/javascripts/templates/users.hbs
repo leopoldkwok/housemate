@@ -35,6 +35,7 @@
                                         {{#if isCurrentUser}} 
                                             <button {{action "removeBill" bill.id}} class="destroy">X</button>
                                         {{/if}}
+                                        TEXT
                                     </a>
                                 </li>
                         {{/each}}
@@ -59,16 +60,20 @@
                 {{#if paymentDisplayAmount}}
                     {{#unless isCurrentUser}}
                         <li><a href="#"> {{paymentMessage}}{{paymentDisplayAmount}} </a></li>
+
+
                     {{/unless}}
                 {{/if}}
             {{/each}}
+
         </ul>
     </div>
+     
 </footer>
 
+<div class='dynamic'> {{totalPositiveDelta}}  {{currentUserDelta}} </div>
 
 
-<div class='magic'>Black Magic = {{totalPositiveDelta}} & {{currentUserDelta}}</div>
 
 
 

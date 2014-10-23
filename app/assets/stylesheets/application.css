@@ -14,7 +14,19 @@
  *= require_self
  */
 
+.dynamic {
+  visibility: hidden;
+}
+.destroy{
+  background-color: white;
+  border: none;
+  color: gray;
+  font-size: 12px;
+}
 
+.destroy:hover{
+  color: black;
+}
 
 .completed{
     text-decoration: line-through;
