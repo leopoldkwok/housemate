@@ -33,6 +33,15 @@ App.UsersController = Ember.ArrayController.extend({
         return this.get('current')  
     }.property('current', 'id', 'currentUserId'),
 
+    currentUserBills: function(){
+        var id = this.get('currentUserId').toString();
+        var number =  this.model.store.all('user').filterBy('id',id)[0].get('totalBills')
+        this.model.store.all('user').forEach(function(item, index, enumerable) {
+            Ember.set(item, 'currentUserSettled', number)
+        })
+        return number
+    }.property('currentUserId', '@each.totalBills', '@each.currentUserSettled'),
+
     currentUserSettled: function(){
         var id = this.get('currentUserId').toString();
         var number =  this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
@@ -42,6 +51,15 @@ App.UsersController = Ember.ArrayController.extend({
         return number
     }.property('currentUserId', '@each.totalSettled', '@each.currentUserSettled'),
 
+    currentUserPercentageSettled: function(){
+        var id = this.get('currentUserId').toString();
+        return this.model.store.all('user').filterBy('id',id)[0].get('percentageSettled')
+    }.property('currentUserId', '@each.totalSettled', '@each.currentUserSettled'),
+
+    currentUserPercentageText: function() {
+        return "width: " + (parseInt(this.get('currentUserPercentageSettled')*100)).toString() + "%;"
+    }.property('currentUserPercentageSettled'),
+
     currentUserDelta: function(){
         var number = (this.get('currentUserSettled') - this.get('averageSettled'));
         this.model.store.all('user').forEach(function(item, index, enumerable) {
@@ -50,13 +68,25 @@ App.UsersController = Ember.ArrayController.extend({
         return number
     }.property('@each', 'currentUserSettled', 'averageSettled', '@each.currentUserDelta'),
 
+    flatBills: function() {
+        return this.model.store.all('user').getEach('totalBills').reduce(sum,0);    
+    }.property('@each.totalBills'),
+
     flatSettled: function() {
         var number = this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
         this.model.store.all('user').forEach(function(item, index, enumerable) {
             Ember.set(item, 'flatSettled', number)
         })
         return number
-    }.property('@each.totalSettled'),
+    }.property('@each.totalSettled', 'flatSettled'),
+
+    flatPercentageSettled: function() {
+        return  this.get('flatSettled') / this.get('flatBills')
+    }.property('flatBills', 'flatSettled'),
+
+    flatPercentageText: function() {
+        return "width: " + (parseInt(this.get('flatPercentageSettled')*100)).toString() + "%;"
+    }.property('flatPercentageSettled'),
 
     numberOfFlatmates: function(){
         var number = this.model.store.all('user').content.length;

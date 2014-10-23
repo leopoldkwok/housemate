@@ -7,17 +7,17 @@
         <form class="form-inline" role="form">
             <div class="form-group">
                 <label class="sr-only" for="exampleInputBill">Bill name</label>
-                {{!-- {{input type='text' id='input-bill' name='Bill' placeholder="Bill" value=newDescription}} --}}
+                {{input type='text' class='form-control' id='exampleBill' name='Bill' placeholder="Bill" value=newDescription}}
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon">
                         £
                     </div>
-                    {{!-- {{input type='text' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}} --}}
+                    {{input type='text' class='form-control' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
                 </div>
             </div>
-            <button class='add-bill' {{action 'createBill'}} >Add Bill</button>
+            <button class='btn btn-default' {{action 'createBill'}} >Add Bill</button>
         </form>
     </section>
 
@@ -35,6 +35,8 @@
                                         {{#if isCurrentUser}} 
                                             <button {{action "removeBill" bill.id}} class="destroy">X</button>
                                         {{/if}}
+
+                                       {{!--  TEST: [{{percentageSettled}}] --}}
                                     </a>
                                 </li>
                         {{/each}}
@@ -43,11 +45,10 @@
         </ul>
     </div>
     <ul class="totals">
-        <li><a href="#">Your bills paid</a><span style="width: 2%;"></span></li>
-        <li><a href="#">House bills paid</a><span style="width: 100%;"></span></li>
+        <li><a href="#">Your bills paid</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
+        <li><a href="#">House bills paid</a><span {{bind-attr style=flatPercentageText}}></span></li>
     </ul>
 </div>
-
 
 <footer>
     <div class="btn-group">
