@@ -40,3 +40,11 @@ When(/^check the box$/) do
   check 'settle-check'
 end
 
+Then(/^that I refresh$/) do
+  driver.navigate.refresh
+end
+
+Then(/^that I am on the sign up page$/) do
+  visit '/users/sign_up'
+end
+
