@@ -10,7 +10,6 @@
     <meta charset="utf-8">
        
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -34,19 +33,15 @@
             <li><a href="#">Settings</a></li>
             <li><a href="#">All bills</a></li>
             <li><a href="#">Pay Housemates</a></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Add an abode", new_abode_path %></li>
           </ul>
         </div>
       </nav><!-- End of nav bar -->
     </header>
 
-      <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
-      <%end%>
-      <%= link_to "Add an abode", new_abode_path %>
     
       <%= notice %>
     
