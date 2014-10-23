@@ -17,6 +17,16 @@
 .dynamic {
   visibility: hidden;
 }
+
+.paybtn {
+  background-color: transparent;
+  border: none;
+}
+
+.paybtn:hover{
+
+}
+
 .destroy{
   background-color: white;
   border: none;
@@ -91,6 +101,8 @@ h1 {
   border-color: #2A2A2A;*/
   margin-bottom: 14px;
 }
+
+
 
 blockquote {
 padding: 15px 70px;
@@ -228,7 +240,7 @@ ul.lst li span {
 }
 
 ul.lst li em {
-  float: right;
+  right: 10px;
   font-style: normal;
   font-weight: normal;
   color: #2A2A2A; /* £ AMOUNTS IN TABLE */
@@ -293,8 +305,13 @@ margin-left: 56px;
 .btn-group.open .dropdown-toggle {
 -webkit-box-shadow: none; 
 box-shadow: inset none; 
-background-color: #fff;
+background-color: #BFF279;
 border-color: #000000;
+}
+
+.btn-group.open .dropdown-toggle:hover {
+  background-color: #97E9B3;
+  transition:0.8s;
 }
 
 #pay {
@@ -306,5 +323,15 @@ border-color: #000000;
   border-color: #2A2A2A;*/
   margin-bottom: 14px;
   width: 75%;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+  background-color: #97E9B3;
+  border-color: black;
+  transition: 0.8s;
+}
+
+#pay:hover {
+  background-color: rgba(107,215,144,0.8)
 }
 

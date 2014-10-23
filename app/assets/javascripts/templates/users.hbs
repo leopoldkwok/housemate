@@ -59,7 +59,7 @@
             {{#each itemController='user'}}
                 {{#if paymentDisplayAmount}}
                     {{#unless isCurrentUser}}
-                        <li><a href="#"> {{paymentMessage}}{{paymentDisplayAmount}} </a></li>
+                        <li><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
 
 
                     {{/unless}}
