@@ -1,46 +1,75 @@
-{{input type='text' id='input-bill' name='Bill' placeholder="Bill" value=newDescription}}
-{{input type='text' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
-<button class='add-bill' {{action 'createBill'}} >Add Bill</button>
 
 
 
-<ul>
-    {{#each itemController='user'}}
-            <li>{{email}} </li>
-                {{#each bill in bills}}
-                        <li {{bind-attr class="bill.settled:completed"}} >
-                            {{#if isCurrentUser}} 
-                                {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
-                            {{/if}}
-                            {{bill.description}} £{{bill.adjustedAmount}}
-                            {{#if isCurrentUser}} 
-                                <button {{action "removeBill" bill.id}} class="destroy">X</button>
-                            {{/if}}
-                        </li>
-                {{/each}}
-            <p>Total Settled: £{{totalSettledStr}}</p>
-    {{/each}}
-</ul>
+<div class="container-fluid">
+    <h2>Your bills</h2>
+    <section>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputBill">Bill name</label>
+                {{!-- {{input type='text' id='input-bill' name='Bill' placeholder="Bill" value=newDescription}} --}}
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        £
+                    </div>
+                    {{!-- {{input type='text' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}} --}}
+                </div>
+            </div>
+            <button class='add-bill' {{action 'createBill'}} >Add Bill</button>
+        </form>
+    </section>
+
+    <div id="main">
+        <ul class="lst">
+            {{#each itemController='user'}}
+                    <li>{{email}} </li>
+                        {{#each bill in bills}}
+                                <li {{bind-attr class="bill.settled:completed"}} >
+                                    <a href="#">
+                                        {{#if isCurrentUser}} 
+                                            <span>{{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}</span>
+                                        {{/if}}
+                                        <span>{{bill.description}}</span> <em>£{{bill.adjustedAmount}}</em>
+                                        {{#if isCurrentUser}} 
+                                            <button {{action "removeBill" bill.id}} class="destroy">X</button>
+                                        {{/if}}
+                                    </a>
+                                </li>
+                        {{/each}}
+                    <p>Total Settled: £{{totalSettledStr}}</p>
+            {{/each}}
+        </ul>
+    </div>
+    <ul class="totals">
+        <li><a href="#">Your bills paid</a><span style="width: 2%;"></span></li>
+        <li><a href="#">House bills paid</a><span style="width: 100%;"></span></li>
+    </ul>
+</div>
 
 
-<div></div>
-{{balanceMessage}}{{netOwedStr}}
+<footer>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            {{balanceMessage}}{{netOwedStr}}
+        </button>
+        <ul class="dropdown-menu pull-right" id="pay" role="menu">
+
+            {{#each itemController='user'}}
+                {{#if paymentDisplayAmount}}
+                    {{#unless isCurrentUser}}
+                        <li><a href="#"> {{paymentMessage}}{{paymentDisplayAmount}} </a></li>
+                    {{/unless}}
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</footer>
 
 
 
-<ul>
-    <tbody>
-    {{#each itemController='user'}}
-        {{#if paymentDisplayAmount}}
-            {{#unless isCurrentUser}}
-                <li> {{paymentMessage}}{{paymentDisplayAmount}}</li>
-            {{/unless}}
-        {{/if}}
-    {{/each}}
-    </tbody>
-</ul>
-
-[Black Magic = {{totalPositiveDelta}} & {{currentUserDelta}}]
+<div class='magic'>Black Magic = {{totalPositiveDelta}} & {{currentUserDelta}}</div>
 
 
 

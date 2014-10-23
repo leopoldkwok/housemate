@@ -18,11 +18,13 @@ Abode.destroy_all
 
 @test2          = User.create(email: 'test2@test.com', password: '12345678', abode_id: @abode1.id)
 
+@test3          = User.create(email: 'test3@test.com', password: '12345678', abode_id: @abode1.id)
+
 @gas            = Bill.create(description: "Gas", amount: 20.25, user_id: @test1.id, abode_id: @test1.abode_id, settled: true)
 @electricity    = Bill.create(description: "Electricity", amount: 45.30, user_id: @test1.id, abode_id: @test1.abode_id)
 @tv             = Bill.create(description: "TV", amount: 15.75, user_id: @test2.id, abode_id: @test2.abode_id)
 
+@ct             = Bill.create(description: "Council Tax", amount: 40.65, user_id: @test3.id, abode_id: @test3.abode_id)
 
-
-
+@phone          = Bill.create(description: "Phone", amount: 36.21, user_id: @test3.id, abode_id: @test3.abode_id, settled: true )
 

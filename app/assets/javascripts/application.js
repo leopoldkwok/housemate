@@ -1,15 +1,14 @@
 //= require jquery
+//= require jquery_ujs
 //= require handlebars
 //= require ember
 //= require ember-data
 //= require_self
 //= require ./app
-$(document).ready(function() {
-    token = $('meta[name="csrf-token"]').attr('content');
-    $.ajaxPrefilter(function(options, originalOptions, xhr) {
-        xhr.setRequestHeader('X-CSRF-Token', token)
-    });
-});
+//= require_tree .
+
+
+
 // for more details see: http://emberjs.com/guides/application/
 var App = Ember.Application.create({
         rootElement: '#ember-app',
@@ -19,7 +18,7 @@ var App = Ember.Application.create({
 
 });
 
-//= require_tree .
+
 
 
 
