@@ -1,15 +1,62 @@
-Add the address for your abode
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HouseMate: Enter your property</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400|Open+Sans' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+     <header>
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id="brand" class="col-xs-2 col-md-2"><a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+        </div>
+        <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
+        <div><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="img/Menu.png"></a>
+          <ul class="dropdown-menu pull-right" role="menu">
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">All bills</a></li>
+            <li><a href="#">Pay Housemates</a></li>
+            <li><a href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div><!-- End of nav bar -->
+    </header>
+        <div class="container-fluid">
+          <p>Enter your home details here</p> <!-- enter home details -->
 
-<%= form_for @abode do |f| %>
-  <%= f.label :name_number %>
-  <%= f.text_field :name_number %>
-  <%= f.label :street %>
-  <%= f.text_field :street %>
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  <%= f.label :county %>
-  <%= f.text_field :county %>
-  <%= f.label :postcode %>
-  <%= f.text_field :postcode %>
-  <%= f.submit %>
-  <% end %>
+<%= form_for @abode, :html=> {:class => "form-inline", :role => "form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :name_number, class: "sr-only col-xs-12 col-lg-4" %>
+    <div class="col-xs-8">
+      <%= f.text_field :name_number, class: "form-control", placeholder: "House name / number" %>
+     </div>
+  </div>      
+  <div class="form-group">
+    <%= f.label :street, class: "sr-only col-xs-12 col-lg-4" %>
+    <div class="col-xs-8">
+      <%= f.text_field :street, class: "form-control", placeholder: "Street" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, class: "sr-only col-xs-12 col-lg-4" %>
+    <div class="col-xs-8">
+      <%= f.text_field :city, class: "form-control", placeholder: "City" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :county, class: "sr-only col-xs-12 col-lg-4" %>
+    <div class="col-xs-8">
+      <%= f.text_field :county, class: "form-control", placeholder: "County" %>
+    </div>
+  </div>    
+  <div class="form-group">
+    <%= f.label :postcode, class: "sr-only col-xs-12 col-lg-4" %>
+    <div class="col-xs-8">
+      <%= f.text_field :postcode, class: "form-control", placeholder: "Postcode" %>
+    </div>
+  </div>    
+  <%= f.submit "Submit", class: "btn btn-default" %>
+<% end %>
