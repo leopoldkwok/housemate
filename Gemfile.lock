@@ -244,6 +244,7 @@ DEPENDENCIES
   ember-source (~> 1.1)
   jbuilder (~> 2.0)
   jquery-rails
+  paypal-sdk-adaptivepayments
   pg
   poltergeist
   pp-adaptive
