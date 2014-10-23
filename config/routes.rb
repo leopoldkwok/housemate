@@ -15,6 +15,16 @@ Rails.application.routes.draw do
     resources :abodes
     post "abodes/add_user" => "abodes#add_user"
 
+    resources :users do
+      resources :abodes
+    end
+
+
+    get '/paypal' => "paypal#index"
+    post '/paypal' => "paypal#pay"
+
+    get "paypal_callback" => "paypal#paypal_callback"
+
 
   # get 'assets/index'
 

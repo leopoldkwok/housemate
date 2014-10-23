@@ -1,0 +1,31 @@
+test: &default
+
+  # Credentials for REST APIs
+  client_id: <%= ENV["CLIENT_ID"] %>
+  client_secret: <%= ENV["CLIENT_SECRET"] %>
+
+  # Mode can be 'live' or 'sandbox'
+  mode: sandbox
+
+  # Credentials for Classic APIs
+  app_id: <%= ENV["APP_ID"] %>
+  username: <%= ENV["USERNAME"] %>
+  password: <%= ENV["PASSWORD"] %>
+  signature: <%= ENV["SIGNATURE"] %>
+  # # With Certificate
+  # cert_path: "config/cert_key.pem"
+  sandbox_email_address: <%= ENV["SANDBOX_EMAIL_ADDRESS"] %>
+
+  # # IP Address
+  # ip_address: 127.0.0.1
+  # # HTTP Proxy
+  # http_proxy: http://proxy-ipaddress:3129/
+
+  # verbose_logging: true
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live

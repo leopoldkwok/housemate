@@ -9,7 +9,7 @@ class AbodesController < ApplicationController
     @abode = Abode.new(params[:abode].permit(:name_number, :street, :city, :county, :postcode))
     @abode.user = current_user
     @abode.save
-    redirect_to abode_path(@abode)
+    redirect_to '/'
   end
 
   def show
@@ -23,10 +23,10 @@ class AbodesController < ApplicationController
       flash[:notice] = "Sorry, I cannot find #{params[:email]}"
       render :show
     else
-     @abode.users << @user
-     @abode.save
-     flash[:notice] = "Successfully added!"
-     redirect_to abode_path(@abode)
-  end
+      @abode.users << @user
+      @abode.save
+      flash[:notice] = "Successfully added!"
+      redirect_to abode_path(@abode)
+    end
   end
 end

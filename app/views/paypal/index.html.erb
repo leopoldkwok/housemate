@@ -1,0 +1,18 @@
+Who do you want to pay?
+
+<ul>
+  <li>
+    <%= form_tag( url: '/paypal' ) do  %>
+      <%= hidden_field_tag 'email', 'chris.oatley@gmail.com' %>
+      <%= hidden_field_tag 'amount', 5 %>
+      <%= submit_tag "Pay Chris" %>
+    <% end %>
+  </li>
+  <li>
+    <%= form_tag( url: '/paypal' ) do  %>
+      <%= hidden_field_tag 'email', 'leopoldkwok@gmail.com' %>
+      <%= hidden_field_tag 'amount', 12 %>
+      <%= submit_tag "Pay Leo" %>
+    <% end %>
+  </li>
+</ul>
