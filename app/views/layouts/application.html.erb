@@ -28,7 +28,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div id="brand" class="col-xs-2 col-md-2"><a class="navbar-brand" href="#"><img src="/Logo.png"></a></div>
         <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
-        <div><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="/Menu.png"></a>
+        <menu><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="/Menu.png"></a>
           <ul class="dropdown-menu pull-right" role="menu">
             <li><a href="#">Settings</a></li>
             <li><a href="#">All bills</a></li>
@@ -38,7 +38,7 @@
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "Add an abode", new_abode_path %></li>
           </ul>
-        </div>
+        </menu>
       </nav><!-- End of nav bar -->
     </header>
 
