@@ -23,7 +23,7 @@
   border: none;
 }
 
-<<<<<<< HEAD
+
 .paybtn:hover{
 
 }
@@ -39,8 +39,6 @@
   color: black;
 }
 
-=======
->>>>>>> f96ed5a6cc047cbdb16ca60cdf9a6a3027ecbb10
 .completed{
     text-decoration: line-through;
 }
@@ -246,25 +244,35 @@ ul.lst {
 }
 
 ul.lst li a {
-  display: block;
-  padding: 7px 50px 7px 50px;
+  display: flex;
+  padding: 7px 15px 7px 15px;
   border-bottom: 1px solid #161616; /* LINES IN TABLE */
   overflow: hidden;
 }
 
-ul.lst li span {
+ul.lst li span.bill-description {
+  flex-grow: 2;
   float: left;
   width: 75%;
   padding: 0 0 0 10px;
 }
 
-ul.lst li em {
-  right: 10px;
-  font-style: normal;
-  font-weight: normal;
-  color: #2A2A2A; /* £ AMOUNTS IN TABLE */
-  padding: 0px 0px 0px 0px;
+ul.lst li span.bill-amount {
+  flex-grow: 4;
+  float: left;
+  text-align: right;
+  padding: 0 0 0 10px;
 }
+
+ul.lst li span.bill-button {
+  width: 50px;
+  text-align: right;
+  vertical-align: middle;
+} 
+
+ul.lst li span.bill-button button {
+  vertical-align: middle;
+} 
 
 ul.lst::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -294,7 +302,7 @@ ul.lst li span {
 ul.totals{
   list-style-type: none;
   display: block;
-  font-size: 20px;
+  font-size: 14px;
   text-indent: 0px;
   font-family: 'Open Sans', sans-serif;
   margin: 0px 87px 0px 0px;
@@ -329,7 +337,7 @@ ul.totals li span {
 }
 
 ul.totals li:hover {
-  font-size: 30px;
+  font-size: 18px;
   border-color: #FFFFFF;
 }
 

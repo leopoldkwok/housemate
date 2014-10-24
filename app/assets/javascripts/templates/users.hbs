@@ -26,44 +26,37 @@
     <div id="main">
         <ul class="lst">
             {{#each itemController='user'}}
-                    <li>{{email}} </li>
-                        {{#each bill in bills}}
-                                <li {{bind-attr class="bill.settled:completed"}} >
-                                    <a href="#">
-<<<<<<< HEAD
+                    {{#unless isCurrentUser}}
+                        <li>{{email}}'s bills </li><br>
+                    {{/unless}}
+                    {{#each bill in bills}}
+                            <li {{bind-attr class="bill.settled:completed"}} >
+                                <a href="#">
+                                    <span class='bill-checkbox'>
                                         {{#if isCurrentUser}} 
-                                            <span>{{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}</span>
-                                        {{/if}}
-                                        <span>{{bill.description}}</span> <em>£{{bill.adjustedAmount}}</em>
-                                        {{#if isCurrentUser}} 
-                                            <button {{action "removeBill" bill.id}} class="destroy">X</button>
-                                        {{/if}}
-                                        TEXT
-=======
-                                        {{#if isCurrentUser}}
-                                        <div class="paid">   
                                             {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
-
-                                            {{/if}}
-
-                                            {{#if isCurrentUser}} 
-                                                <button {{action "removeBill" bill.id}} class="glyphicon glyphicon-trash"></button>
-                                            {{/if}}
-                                            <div class="bill-description"><span>{{bill.description}}</span> <span><em>£{{bill.adjustedAmount}}</em></span></div>
-
-                                        </div>
->>>>>>> f96ed5a6cc047cbdb16ca60cdf9a6a3027ecbb10
-                                    </a>
-                                </li>
-                        {{/each}}
-                    <p>Total Settled: £{{totalSettledStr}}</p>
+                                        {{/if}}
+                                    </span>
+                                    <span class="bill-description">{{bill.description}}</span> 
+                                    <span class="bill-amount">£{{bill.adjustedAmount}}</span>      
+                                    <span class='bill-button'>
+                                    {{#if isCurrentUser}} 
+                                                <button {{action "removeBill" bill.id}} class="destroy">X</button>
+                                        {{/if}}
+                                    </span>
+                                </a>
+                            </li>
+                    {{/each}}<br>
+                    {{#unless isCurrentUser}}
+                        <li>Total Settled: £{{totalSettledStr}}</li>
+                    {{/unless}}<br><br>
             {{/each}}
         </ul>
     </div>
-    <ul class="totals">
-        <li><a href="#">Your bills paid</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
-        <li><a href="#">House bills paid</a><span {{bind-attr style=flatPercentageText}}></span></li>
-    </ul>
+{{!--     <ul class="totals">
+        <li><a href="#">{{currentUserPaidText}}</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
+        <li><a href="#">{{flatPaidText}}</a><span {{bind-attr style=flatPercentageText}}></span></li>
+    </ul> --}}
 </div>
 
 <footer>
@@ -85,11 +78,6 @@
 
         </ul>
     </div>
-<<<<<<< HEAD
-     
-=======
-
->>>>>>> f96ed5a6cc047cbdb16ca60cdf9a6a3027ecbb10
 </footer>
 
 
