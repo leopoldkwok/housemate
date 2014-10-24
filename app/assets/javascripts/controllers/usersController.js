@@ -87,7 +87,7 @@ App.UsersController = Ember.ArrayController.extend({
         } else if(settled) {
             return "You've paid £" + this.get('currentUserSettledStr') + " of £" + this.get('currentUserBillsStr')
         } else {
-            return "You haven't paid anything. Nothing."
+            return "You haven't paid for anything. Nothing."
         }
     }.property('currentUserSettledStr', 'currentUserBillsStr','currentUserSettledNoBind','currentUserBillsNoBind'),
 
