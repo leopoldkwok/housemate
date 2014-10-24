@@ -133,7 +133,7 @@ text-align: right;
 h2 {
   font-size: 20px;
   font-weight: bold;
-  padding: 50px 50px 7px 47px;
+  padding: 20px 50px 2px 47px;
   color: #2A2A2A; /* YOUR BILLS TEXT - index */
 }
 
@@ -166,6 +166,7 @@ p {
 form {
   display: block;
   padding: 7px 50px 7px 42px;
+  margin-top: 20px;
 }
 
 form.input:focus::-webkit-input-placeholder
@@ -219,8 +220,7 @@ form.input:focus::-webkit-input-placeholder
   border-radius: 0px;
   background-color: #6BD791;
   border-width: 1px;
-/*  border-color: #2A2A2A;
-*/  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 a:link, a:hover, a:visited {
@@ -230,16 +230,17 @@ a:link, a:hover, a:visited {
 }
 
 ul.lst {
+    border: 1px dotted gray;
     list-style-type: none;
-    height: 300px;
+    height: 200px;
     margin: 10px 42px 10px 42px;
-    margin-top: 30px;
-    margin-left: 4px;
+    margin-top: 10px;
+    margin-left: 35px;
     margin-right: 42px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     overflow: auto;
     background-color: #FFFFFF; /* BACKGROUND FOR TABLE */
-    padding-left: 40px;
+    padding-left: 10px;
     padding-right: 40px;
 }
 
@@ -259,13 +260,15 @@ ul.lst li span.bill-description {
 
 ul.lst li span.bill-amount {
   flex-grow: 4;
-  float: left;
+  margin-right: 5px;
   text-align: right;
-  padding: 0 0 0 10px;
+  /*padding: 0 0 0 10px;*/
 }
 
 ul.lst li span.bill-button {
-  width: 50px;
+  width: 2px;
+  /*margin-left: 5px;*/
+  float: right;
   text-align: right;
   vertical-align: middle;
 } 
@@ -342,9 +345,12 @@ ul.totals li:hover {
 }
 
 .btn-group > .btn:first-child {
-margin-left: 56px;
+margin-left: 70px;
+width: 250px;
 }
 .btn-group.open .dropdown-toggle {
+width: 250px;
+
 -webkit-box-shadow: none; 
 box-shadow: inset none; 
 background-color: #BFF279;
@@ -357,14 +363,26 @@ border-color: #000000;
 }
 
 #pay {
+  -webkit-padding-start: 0;
+  padding: none;
+  list-style-type: none;
   margin: -15px 0px 0;
   border-radius: 0px;
   border-color: #000000;
   background-color: #6BD791;
  /* border-width: 1px;
   border-color: #2A2A2A;*/
-  margin-bottom: 14px;
-  width: 75%;
+  margin-bottom: 10px;
+  width: 78%;
+}
+
+.dropdown-menu {
+  padding-bottom: 0px;
+}
+
+.pay-btn {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {

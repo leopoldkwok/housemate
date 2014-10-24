@@ -2,7 +2,7 @@
 
 
 <div class="container-fluid">
-    <h2>Your bills</h2>
+    
 
     
     <section>
@@ -24,6 +24,7 @@
     </section>
 
     <div id="main">
+        <h2>Your bills</h2>
         <ul class="lst">
             {{#each itemController='user'}}
                     {{#unless isCurrentUser}}
@@ -69,7 +70,7 @@
             {{#each itemController='user'}}
                 {{#if paymentDisplayAmount}}
                     {{#unless isCurrentUser}}
-                        <li><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
+                        <li class='pay-btn'><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
 
 
                     {{/unless}}
