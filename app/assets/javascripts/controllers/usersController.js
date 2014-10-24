@@ -42,6 +42,11 @@ App.UsersController = Ember.ArrayController.extend({
         return number
     }.property('currentUserId', '@each.totalBills', '@each.currentUserSettled'),
 
+    currentUserBillsNoBind: function() {
+        var id = this.get('currentUserId').toString();
+        return  this.model.store.all('user').filterBy('id',id).getEach('totalBills').reduce(sum,0)
+    }.property('currentUserId', '@each.totalBills'),
+
     currentUserSettled: function(){
         var id = this.get('currentUserId').toString();
         var number =  this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
@@ -51,17 +56,22 @@ App.UsersController = Ember.ArrayController.extend({
         return number
     }.property('currentUserId', '@each.totalSettled', '@each.currentUserSettled'),
 
+    currentUserSettledNoBind: function() {
+        var id = this.get('currentUserId').toString();
+        return this.model.store.all('user').filterBy('id',id).getEach('totalSettled').reduce(sum,0)
+    }.property('currentUserId', '@each.totalSettled'),
+
     currentUserSettledStr: function(){
-        var val = (Math.round(this.get('currentUserSettled')*100)/100).toString();
+        var val = (Math.round(this.get('currentUserSettledNoBind')*100)/100).toString();
         if (val.charAt(val.length-2) === ".") {
             return val + '0';
         } else {
             return val;
         }
-    }.property('currentUserSettled'),
+    }.property('currentUserSettledNoBind'),
 
     currentUserBillsStr: function() {
-        var val = (Math.round(this.get('currentUserBills')*100)/100).toString();
+        var val = (Math.round(this.get('currentUserBillsNoBind')*100)/100).toString();
         if (val.charAt(val.length-2) === ".") {
             return val + '0';
         } else {
@@ -70,14 +80,16 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('currentUserBills'),
 
     currentUserPaidText: function() {
-        // if(this.get('currentUserSettled') === this.get('currentUserBills')) {
-        //     return "You are a bill paying star"
-        // } else if(this.get('currentUserSettled')) {
+        var settled = this.get('currentUserSettledNoBind');
+        var bills   = this.get('currentUserBillsNoBind');
+        if(settled === bills) {
+            return "You are a bill paying star"
+        } else if(settled) {
             return "You've paid £" + this.get('currentUserSettledStr') + " of £" + this.get('currentUserBillsStr')
-        // } else {
-        //     return "Be a team player and pay something"
-        // }
-    }.property('currentUserBillsStr', 'currentUserSettledStr'),
+        } else {
+            return "Be a team player and pay something"
+        }
+    }.property('currentUserSettledStr', 'currentUserBillsStr','currentUserSettledNoBind','currentUserBillsNoBind'),
 
     currentUserPercentageSettled: function(){
         var id = this.get('currentUserId').toString();
@@ -127,14 +139,16 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('flatSettled'),
 
     flatPaidText: function() {
-        // if(this.get('flatSettled') === this.get('flatBills')) {
-        //     return "This is the house that love built"
-        // } else if(this.get('flatSettled')) {
+        var settled = this.get('flatSettled');
+        var bills   = this.get('flatBills')
+        if(settled === bills) {
+            return "This is the house that love built"
+        } else if(settled) {
             return "House: £" + this.get('flatSettledStr') + " of £" + this.get('flatBillsStr')
-        // } else {
-        //     return "Your flat has not paid a thing"
-        // }
-    }.property('flatBillsStr', 'flatSettledStr'),
+        } else {
+            return "Your flat has not paid a thing"
+        }
+    }.property('flatSettled', 'flatBills','flatBillsStr', 'flatSettledStr'),
 
     flatPercentageSettled: function() {
         return  this.get('flatSettled') / this.get('flatBills')
