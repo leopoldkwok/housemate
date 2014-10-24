@@ -87,7 +87,7 @@ App.UsersController = Ember.ArrayController.extend({
         } else if(settled) {
             return "You've paid £" + this.get('currentUserSettledStr') + " of £" + this.get('currentUserBillsStr')
         } else {
-            return "Be a team player and pay something"
+            return "You haven't paid anything. Nothing."
         }
     }.property('currentUserSettledStr', 'currentUserBillsStr','currentUserSettledNoBind','currentUserBillsNoBind'),
 
@@ -144,9 +144,9 @@ App.UsersController = Ember.ArrayController.extend({
         if(settled === bills) {
             return "This is the house that love built"
         } else if(settled) {
-            return "House: £" + this.get('flatSettledStr') + " of £" + this.get('flatBillsStr')
+            return "The house has paid £" + this.get('flatSettledStr') + " of £" + this.get('flatBillsStr')
         } else {
-            return "Your flat has not paid a thing"
+            return "Your house hasn't paid a thing"
         }
     }.property('flatSettled', 'flatBills','flatBillsStr', 'flatSettledStr'),
 

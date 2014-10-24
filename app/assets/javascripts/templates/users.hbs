@@ -1,10 +1,7 @@
 
 
-
 <div class="container-fluid">
-    
 
-    
     <section>
         <form class="form-inline" role="form">
             <div class="form-group">
@@ -19,7 +16,7 @@
                     {{input type='text' class='form-control' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
                 </div>
             </div>
-            <button class='btn btn-default' {{action 'createBill'}} >Add Bill</button>
+            <button class='btn btn-default' id='add-bill' {{action 'createBill'}} >Add Bill</button>
         </form>
     </section>
 
@@ -55,8 +52,8 @@
         </ul>
     </div>
     <ul class="totals">
-        <li><a href="#">{{currentUserPaidText}}</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
-        <li><a href="#">{{flatPaidText}}</a><span {{bind-attr style=flatPercentageText}}></span></li>
+        <li><a href="#" class='paymentmsg'>{{currentUserPaidText}}</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
+        <li><a href="#" class='paymentmsg'>{{flatPaidText}}</a><span {{bind-attr style=flatPercentageText}}></span></li>
     </ul>
 </div>
 
@@ -70,8 +67,19 @@
             {{#each itemController='user'}}
                 {{#if paymentDisplayAmount}}
                     {{#unless isCurrentUser}}
-                        <li class='pay-btn'><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
 
+                        {{!-- <li class='pay-btn'><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li> --}}
+                        {{#if amountCurrentUserOwesFlatmate}}
+                            <li class='pay-btn'>
+                                <form method='post' action='/paypal?url=/paypal'>
+                                <input type='hidden' name='email' {{bind-attr value=email}}/>
+                                <input type='hidden' name='amount' {{bind-attr value=paymentDisplayAmount}}/>
+                                <button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button>
+                                </form>
+                            </li>
+                        {{else}}
+                            <li class='pay-btn'><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
+                        {{/if}}
 
                     {{/unless}}
                 {{/if}}
