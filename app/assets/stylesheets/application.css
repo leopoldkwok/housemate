@@ -156,6 +156,13 @@ h4 {
   color: #2A2A2A;
 }*/
 
+h6 {
+  margin: 30px 0px 0px 0px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-size: 30px;
+}
+
 p {
   font-size: 20px;
   padding: 7px 50px 7px 47px;
