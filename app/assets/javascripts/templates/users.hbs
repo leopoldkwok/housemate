@@ -69,7 +69,17 @@
             {{#each itemController='user'}}
                 {{#if paymentDisplayAmount}}
                     {{#unless isCurrentUser}}
-                        <li><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
+                        <li>
+                            {{#if amountCurrentUserOwesFlatmate}}
+                            <form method='post' action='/paypal?url=/paypal'>
+                            <input type='hidden' name='email' {{bind-attr value=email}}/>
+                            <input type='hidden' name='amount' {{bind-attr value=paymentDisplayAmount}}/>
+                            <button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button>
+                            {{else}}
+                              {{paymentMessage}}{{paymentDisplayAmount}}
+                            {{/if}}
+                            </form>
+                        </li>
 
 
                     {{/unless}}
