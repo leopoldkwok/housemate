@@ -139,6 +139,7 @@ h2 {
 
 h3 {
   font-family: 'Roboto Slab', serif;
+  font-style: italic;
   font-size: 30px;
   padding: 50px 50px 7px 47px;
   color: #6BD791; /*Quote text in sign_up*/
