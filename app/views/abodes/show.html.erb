@@ -1,5 +1,5 @@
-<h1><%= @abode.name_number %> 
-<%= @abode.street %></h1>
+<h5><%= @abode.name_number %> 
+<%= @abode.street %></h5>
 
 <div class="container-fluid">
 
@@ -19,4 +19,4 @@
     <% end %>
   </section>
 </div>
-<h3><%= link_to 'Finished', root_path %></h3>
+<%= link_to 'Finished', root_path, class: "btn btn-default", id: "finished" %>
