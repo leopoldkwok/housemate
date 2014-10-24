@@ -30,6 +30,7 @@
                         {{#each bill in bills}}
                                 <li {{bind-attr class="bill.settled:completed"}} >
                                     <a href="#">
+<<<<<<< HEAD
                                         {{#if isCurrentUser}} 
                                             <span>{{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}</span>
                                         {{/if}}
@@ -38,6 +39,20 @@
                                             <button {{action "removeBill" bill.id}} class="destroy">X</button>
                                         {{/if}}
                                         TEXT
+=======
+                                        {{#if isCurrentUser}}
+                                        <div class="paid">   
+                                            {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
+
+                                            {{/if}}
+
+                                            {{#if isCurrentUser}} 
+                                                <button {{action "removeBill" bill.id}} class="glyphicon glyphicon-trash"></button>
+                                            {{/if}}
+                                            <div class="bill-description"><span>{{bill.description}}</span> <span><em>£{{bill.adjustedAmount}}</em></span></div>
+
+                                        </div>
+>>>>>>> f96ed5a6cc047cbdb16ca60cdf9a6a3027ecbb10
                                     </a>
                                 </li>
                         {{/each}}
@@ -70,7 +85,11 @@
 
         </ul>
     </div>
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> f96ed5a6cc047cbdb16ca60cdf9a6a3027ecbb10
 </footer>
 
 

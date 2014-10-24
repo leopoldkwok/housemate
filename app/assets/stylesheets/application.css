@@ -23,6 +23,7 @@
   border: none;
 }
 
+<<<<<<< HEAD
 .paybtn:hover{
 
 }
@@ -38,8 +39,27 @@
   color: black;
 }
 
+=======
+>>>>>>> f96ed5a6cc047cbdb16ca60cdf9a6a3027ecbb10
 .completed{
     text-decoration: line-through;
+}
+
+/*input[type=checkbox] {
+ visibility: hidden;
+}*/
+
+.bill-description {
+  display: inline-block;
+}
+
+.paid {
+  float: left;
+  display: inline-block;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin: 0px;
 }
 
 body {
@@ -142,7 +162,7 @@ p {
   padding: 7px 50px 7px 47px;
   height: 30px;
   color: #2A2A2A;
-  margin: 50px 8px 15px;
+  margin: 50px -5px 15px;
 } /*Enter home and  housemates in abode */ 
 
 form {
@@ -201,10 +221,9 @@ form.input:focus::-webkit-input-placeholder
   border-radius: 0px;
   background-color: #6BD791;
   border-width: 1px;
-  border-color: #2A2A2A;
-  margin-bottom: 14px;
+/*  border-color: #2A2A2A;
+*/  margin-bottom: 14px;
 }
-
 
 a:link, a:hover, a:visited {
   font-weight: bold;
@@ -228,7 +247,7 @@ ul.lst {
 
 ul.lst li a {
   display: block;
-  padding: 7px 7px 7px 7px;
+  padding: 7px 50px 7px 50px;
   border-bottom: 1px solid #161616; /* LINES IN TABLE */
   overflow: hidden;
 }
@@ -244,7 +263,7 @@ ul.lst li em {
   font-style: normal;
   font-weight: normal;
   color: #2A2A2A; /* £ AMOUNTS IN TABLE */
-  padding: 0 10px 0 0;
+  padding: 0px 0px 0px 0px;
 }
 
 ul.lst::-webkit-scrollbar {
@@ -255,6 +274,21 @@ ul.lst::-webkit-scrollbar {
 ul.lst::-webkit-scrollbar-thumb {
     border-radius: 0px;
     background-color: #161616;
+}
+
+ul.lst li span {
+  float: none;
+}
+
+.bill-description {
+  display: inline-block;
+}
+
+.glyphicon {
+  float: right;
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 0px;
 }
 
 ul.totals{
