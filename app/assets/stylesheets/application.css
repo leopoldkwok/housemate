@@ -149,12 +149,15 @@ h4 {
   padding: 7px 50px 7px 47px; /* Quote text author in sign_up */
 }
 
-/*h5 {
+h5 {
   font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: -18px;
   font-weight: bold;
+  font font-style: italic;
   padding: 50px 50px 7px 47px;
-  color: #2A2A2A;
-}*/
+  color: #6BD791;
+}
 
 p {
   font-size: 20px;
@@ -222,6 +225,10 @@ form.input:focus::-webkit-input-placeholder
   border-width: 1px;
 /*  border-color: #2A2A2A;
 */  margin-bottom: 14px;
+}
+
+#finished {
+  margin-left: 57px;
 }
 
 a:link, a:hover, a:visited {
