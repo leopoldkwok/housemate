@@ -9,7 +9,9 @@ class AbodesController < ApplicationController
     @abode = Abode.new(params[:abode].permit(:name_number, :street, :city, :county, :postcode))
     @abode.user = current_user
     @abode.save
-    redirect_to '/'
+    @user = User.find_by(id: current_user.id)
+    @user.update(abode_id: @abode.id)
+    redirect_to abode_path(@abode)
   end
 
   def show
@@ -24,9 +26,10 @@ class AbodesController < ApplicationController
       render :show
     else
       @abode.users << @user
+      @user.abode_id = @abode.id
       @abode.save
       flash[:notice] = "Successfully added!"
-      redirect_to abode_path(@abode)
+      render :show
     end
   end
 end

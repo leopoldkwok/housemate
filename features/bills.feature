@@ -56,6 +56,29 @@ Feature: As a user I want to be able to
         Then I should see "You are owed £18.72"
 
     @javascript @selenium
+    Scenario: The user is told how much each housemate owes them
+        Given  "test1@test.com" uploads a "tv" bill for "50.50" pounds and settles
+        And  "test2@test.com" uploads a "tax" bill for "10.24" pounds and settles
+        And  "test3@test.com" uploads a "phone" bill for "34.60" pounds and settles
+        Then that I am on the sign up page
+        Then that I am on the homepage
+        And click the button "You are owed £18.72"
+        Then I should see "test2@test.com owes you £18.72"
+
+    @javascript @selenium
+    Scenario: The user is told how much each housemate owes them
+        Given  "test1@test.com" uploads a "tv" bill for "50.50" pounds and settles
+        And  "test2@test.com" uploads a "tax" bill for "10.24" pounds and settles
+        And  "test3@test.com" uploads a "phone" bill for "34.60" pounds and settles
+        Then that I am on the sign up page
+        Then that I am on the homepage
+        And click the button "You are owed £18.72"
+        Then click the button "test2@test.com owes you £18.72"
+        Then I should see "Have you been paid?"
+
+
+
+    @javascript @selenium
     Scenario: The user is told if they don't owe anything
         Then I should see "We're square"
 
@@ -66,6 +89,7 @@ Feature: As a user I want to be able to
         And  "test3@test.com" uploads a "phone" bill for "34.60" pounds and settles
         Then that I am on the sign up page
         Then that I am on the homepage
+        And click the button "You owe £21.54"
         Then I should see "Pay test2@test.com £18.72"
         And I should see "Pay test3@test.com £2.82"
 

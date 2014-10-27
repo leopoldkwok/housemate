@@ -1,0 +1,5 @@
+<%- if user_signed_in? %>
+  <meta hidden name="current-user" content="<%= UserSerializer.new(current_user).to_json(root: false) %>" />
+  <%- else %>
+    <div class="welcome col-md-8 col-md-offset-2"><h6>Welcome to HouseMate<br>Please click on the menu icon to sign up</h6></div>
+<% end %>

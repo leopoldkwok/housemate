@@ -4,7 +4,7 @@
   
   <p>Enter your home details here</p> <!-- enter home details -->
 
-  <section>
+  <section class= "row">
     <%= form_for @abode, :html=> {:class => "form-inline", :role => "form"} do |f| %>
 
       <div class="form-group col-xs-12 col-lg-4" %>
@@ -38,65 +38,8 @@
         </div>
       </div>    
       <div class="form-group col-xs-12 col-lg-4" %>
-          <%= f.submit "Submit", class: "btn btn-default col-xs-8" %>
+        <%= f.submit "Submit", class: "btn btn-default col-xs-8" %>
       </div>
     <% end %>
   </section>
 </div>
-
-<div class="container-fluid">
-
-  <p>Add your HouseMates</p>
-  
-  <section>
-    <%= form_tag("/abodes/add_user", method: "post") do %>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
-        <div class="col-xs-6">
-          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
-        </div>
-      </div>   
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
-      </div>
-    <% end %>
-
-     <%= form_tag("/abodes/add_user", method: "post") do %>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
-        <div class="col-xs-6">
-          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
-        </div>
-      </div>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
-      </div>
-    <% end %>
-
-
-     <%= form_tag("/abodes/add_user", method: "post") do %>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
-        <div class="col-xs-6">
-          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
-        </div>
-      </div>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
-      </div>
-    <% end %>
-
-     <%= form_tag("/abodes/add_user", method: "post") do %>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= text_field_tag :email, nil, :class => "form-control",  placeholder: "HouseMates email address" %>
-        <div class="col-xs-6">
-          <%= hidden_field_tag(:abode_id, value = @abode.id) %>
-        </div>
-      </div>
-      <div class="form-group col-xs-6 col-sm-3">
-        <%= submit_tag "Add", class: "btn btn-default col-xs-6" %>
-      </div>
-    <% end %>
-  </section>
-</div>
-

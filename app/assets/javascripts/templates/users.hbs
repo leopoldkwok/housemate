@@ -1,8 +1,7 @@
 
 
-
 <div class="container-fluid">
-    <h2>Your bills</h2>
+
     <section>
         <form class="form-inline" role="form">
             <div class="form-group">
@@ -17,34 +16,44 @@
                     {{input type='text' class='form-control' id='input-amount' name='Amount' placeholder="Amount" value=newAmount}}
                 </div>
             </div>
-            <button class='btn btn-default' {{action 'createBill'}} >Add Bill</button>
+            <button class='btn btn-default' id='add-bill' {{action 'createBill'}} >Add Bill</button>
         </form>
     </section>
 
     <div id="main">
+        <h2>Your bills</h2>
         <ul class="lst">
             {{#each itemController='user'}}
-                    <li>{{email}} </li>
-                        {{#each bill in bills}}
-                                <li {{bind-attr class="bill.settled:completed"}} >
-                                    <a href="#">
+                    {{#unless isCurrentUser}}
+                        <li>{{email}}'s bills </li><br>
+                    {{/unless}}
+                    {{#each bill in bills}}
+                            <li {{bind-attr class="bill.settled:completed"}} >
+                                <a href="#">
+                                    <span class='bill-checkbox'>
                                         {{#if isCurrentUser}} 
-                                            <span>{{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}</span>
+                                            {{input type="checkbox" name='settle-check' checked=bill.settled class="toggle"}}
                                         {{/if}}
-                                        <span>{{bill.description}}</span> <em>£{{bill.adjustedAmount}}</em>
-                                        {{#if isCurrentUser}} 
-                                            <button {{action "removeBill" bill.id}} class="destroy">X</button>
+                                    </span>
+                                    <span class="bill-description">{{bill.description}}</span> 
+                                    <span class="bill-amount">£{{bill.adjustedAmount}}</span>      
+                                    <span class='bill-button'>
+                                    {{#if isCurrentUser}} 
+                                                <button {{action "removeBill" bill.id}} class="destroy">X</button>
                                         {{/if}}
-                                    </a>
-                                </li>
-                        {{/each}}
-                    <p>Total Settled: £{{totalSettledStr}}</p>
+                                    </span>
+                                </a>
+                            </li>
+                    {{/each}}<br>
+                    {{#unless isCurrentUser}}
+                        <li>Total Settled: £{{totalSettledStr}}</li>
+                    {{/unless}}<br><br>
             {{/each}}
         </ul>
     </div>
     <ul class="totals">
-        <li><a href="#">Your bills paid</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
-        <li><a href="#">House bills paid</a><span {{bind-attr style=flatPercentageText}}></span></li>
+        <li><a href="#" class='paymentmsg'>{{currentUserPaidText}}</a><span {{bind-attr style=currentUserPercentageText}}></span></li>
+        <li><a href="#" class='paymentmsg'>{{flatPaidText}}</a><span {{bind-attr style=flatPercentageText}}></span></li>
     </ul>
 </div>
 
@@ -58,17 +67,32 @@
             {{#each itemController='user'}}
                 {{#if paymentDisplayAmount}}
                     {{#unless isCurrentUser}}
-                        <li><a href="#"> {{paymentMessage}}{{paymentDisplayAmount}} </a></li>
+
+                        {{!-- <li class='pay-btn'><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li> --}}
+                        {{#if amountCurrentUserOwesFlatmate}}
+                            <li class='pay-btn'>
+                                <form method='post' action='/paypal?url=/paypal'>
+                                <input type='hidden' name='email' {{bind-attr value=email}}/>
+                                <input type='hidden' name='amount' {{bind-attr value=paymentDisplayAmount}}/>
+                                <button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button>
+                                </form>
+                            </li>
+                        {{else}}
+                            <li class='pay-btn'><button class='paybtn'>{{paymentMessage}}{{paymentDisplayAmount}}</button></li>
+                        {{/if}}
+
                     {{/unless}}
                 {{/if}}
             {{/each}}
+
         </ul>
     </div>
 </footer>
 
 
+<div class='dynamic'> {{totalPositiveDelta}}  {{currentUserDelta}} </div>
 
-<div class='magic'>Black Magic = {{totalPositiveDelta}} & {{currentUserDelta}}</div>
+
 
 
 

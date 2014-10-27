@@ -1,5 +1,7 @@
 class PaypalController < ApplicationController
 
+  protect_from_forgery except: :pay
+
   require "pp-adaptive"
 
   def index

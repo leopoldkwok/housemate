@@ -42,6 +42,11 @@ App.UsersController = Ember.ArrayController.extend({
         return number
     }.property('currentUserId', '@each.totalBills', '@each.currentUserSettled'),
 
+    currentUserBillsNoBind: function() {
+        var id = this.get('currentUserId').toString();
+        return  this.model.store.all('user').filterBy('id',id).getEach('totalBills').reduce(sum,0)
+    }.property('currentUserId', '@each.totalBills'),
+
     currentUserSettled: function(){
         var id = this.get('currentUserId').toString();
         var number =  this.model.store.all('user').filterBy('id',id)[0].get('totalSettled')
@@ -50,6 +55,41 @@ App.UsersController = Ember.ArrayController.extend({
         })
         return number
     }.property('currentUserId', '@each.totalSettled', '@each.currentUserSettled'),
+
+    currentUserSettledNoBind: function() {
+        var id = this.get('currentUserId').toString();
+        return this.model.store.all('user').filterBy('id',id).getEach('totalSettled').reduce(sum,0)
+    }.property('currentUserId', '@each.totalSettled'),
+
+    currentUserSettledStr: function(){
+        var val = (Math.round(this.get('currentUserSettledNoBind')*100)/100).toString();
+        if (val.charAt(val.length-2) === ".") {
+            return val + '0';
+        } else {
+            return val;
+        }
+    }.property('currentUserSettledNoBind'),
+
+    currentUserBillsStr: function() {
+        var val = (Math.round(this.get('currentUserBillsNoBind')*100)/100).toString();
+        if (val.charAt(val.length-2) === ".") {
+            return val + '0';
+        } else {
+            return val;
+        }
+    }.property('currentUserBills'),
+
+    currentUserPaidText: function() {
+        var settled = this.get('currentUserSettledNoBind');
+        var bills   = this.get('currentUserBillsNoBind');
+        if(settled === bills) {
+            return "You are a bill paying star"
+        } else if(settled) {
+            return "You've paid £" + this.get('currentUserSettledStr') + " of £" + this.get('currentUserBillsStr')
+        } else {
+            return "You haven't paid for anything. Nothing."
+        }
+    }.property('currentUserSettledStr', 'currentUserBillsStr','currentUserSettledNoBind','currentUserBillsNoBind'),
 
     currentUserPercentageSettled: function(){
         var id = this.get('currentUserId').toString();
@@ -72,6 +112,15 @@ App.UsersController = Ember.ArrayController.extend({
         return this.model.store.all('user').getEach('totalBills').reduce(sum,0);    
     }.property('@each.totalBills'),
 
+    flatBillsStr: function() {
+    var val = (Math.round(this.get('flatBills')*100)/100).toString();
+        if (val.charAt(val.length-2) === ".") {
+            return val + '0';
+        } else {
+            return val;
+        }
+    }.property('flatBills'),
+
     flatSettled: function() {
         var number = this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
         this.model.store.all('user').forEach(function(item, index, enumerable) {
@@ -79,6 +128,27 @@ App.UsersController = Ember.ArrayController.extend({
         })
         return number
     }.property('@each.totalSettled', 'flatSettled'),
+
+    flatSettledStr: function() {
+    var val = (Math.round(this.get('flatSettled')*100)/100).toString();
+        if (val.charAt(val.length-2) === ".") {
+            return val + '0';
+        } else {
+            return val;
+        }
+    }.property('flatSettled'),
+
+    flatPaidText: function() {
+        var settled = this.get('flatSettled');
+        var bills   = this.get('flatBills')
+        if(settled === bills) {
+            return "This is the house that love built"
+        } else if(settled) {
+            return "The house has paid £" + this.get('flatSettledStr') + " of £" + this.get('flatBillsStr')
+        } else {
+            return "Your house hasn't paid a thing"
+        }
+    }.property('flatSettled', 'flatBills','flatBillsStr', 'flatSettledStr'),
 
     flatPercentageSettled: function() {
         return  this.get('flatSettled') / this.get('flatBills')

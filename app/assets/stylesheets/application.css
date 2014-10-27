@@ -14,14 +14,70 @@
  *= require_self
  */
 
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
+.dynamic {
+  visibility: hidden;
+}
+
+.paybtn {
+  background-color: transparent;
+  border: none;
+}
+
+.nopaybtn {
+  background-color: transparent;
+  border: none;
+}
+
+
+.paybtn:hover{
+
+}
+
+ul#pay.dropdown-menu.pull-right {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.destroy{
+  background-color: white;
+  border: none;
+  color: gray;
+  font-size: 12px;
+}
+
+.destroy:hover{
+  color: black;
+}
 
 .completed{
     text-decoration: line-through;
 }
 
+/*input[type=checkbox] {
+ visibility: hidden;
+}*/
+
+.bill-description {
+  display: inline-block;
+}
+
+.paid {
+  float: left;
+  display: inline-block;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin: 0px;
+}
+
 body {
-  padding: 45px 0 0 0;
+  margin-top: 15px;
+  padding: 40px 0 0 0;
   background-color: #FFFFFF; /* background for page */
   font-family: 'Open Sans', sans-serif;
 }
@@ -80,6 +136,8 @@ h1 {
   margin-bottom: 14px;
 }
 
+
+
 blockquote {
 padding: 15px 70px;
 margin: 0 0 20px;
@@ -89,14 +147,15 @@ text-align: right;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 50px 50px 7px 47px;
+  padding: 5px 40px 2px 40px;
   color: #2A2A2A; /* YOUR BILLS TEXT - index */
 }
 
 h3 {
   font-family: 'Roboto Slab', serif;
+  font-style: italic;
   font-size: 30px;
   padding: 50px 50px 7px 47px;
   color: #6BD791; /*Quote text in sign_up*/
@@ -106,24 +165,34 @@ h4 {
   padding: 7px 50px 7px 47px; /* Quote text author in sign_up */
 }
 
-/*h5 {
+h5 {
   font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: -18px;
   font-weight: bold;
+  font font-style: italic;
   padding: 50px 50px 7px 47px;
-  color: #2A2A2A;
-}*/
+  color: #6BD791;
+}
+
+h6 {
+  margin: 30px 0px 0px 0px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-size: 30px;
+}
 
 p {
   font-size: 20px;
   padding: 7px 50px 7px 47px;
   height: 30px;
   color: #2A2A2A;
-  margin: 50px 8px 15px;
+  margin: 50px 0px 15px;
 } /*Enter home and  housemates in abode */ 
 
-form {
+.form-inline {
   display: block;
-  padding: 7px 50px 7px 42px;
+  padding: 7px 40px 7px 40px;
 }
 
 form.input:focus::-webkit-input-placeholder
@@ -137,7 +206,7 @@ form.input:focus::-webkit-input-placeholder
 }
 
 .form-inline label {
-    line-height: 34px;
+    line-height: 30px;
 }
 
 .form-inline .form-control {
@@ -177,10 +246,16 @@ form.input:focus::-webkit-input-placeholder
   border-radius: 0px;
   background-color: #6BD791;
   border-width: 1px;
-  border-color: #2A2A2A;
-  margin-bottom: 14px;
+  margin-bottom: 5px;
 }
 
+#add-bill {
+  vertical-align: top;
+}
+
+#finished {
+  margin-left: 57px;
+}
 
 a:link, a:hover, a:visited {
   font-weight: bold;
@@ -189,39 +264,58 @@ a:link, a:hover, a:visited {
 }
 
 ul.lst {
+    font-size: 14px;
+    /*font-weight: normal;*/
+    border: 1px dotted gray;
     list-style-type: none;
-    height: 300px;
+    height: 150px;
     margin: 10px 42px 10px 42px;
-    margin-top: 30px;
-    margin-left: 4px;
-    margin-right: 42px;
-    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 15px;
     overflow: auto;
     background-color: #FFFFFF; /* BACKGROUND FOR TABLE */
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a:link, a:hover, a:visited {
+  font-weight: normal;
 }
 
 ul.lst li a {
-  display: block;
-  padding: 7px 7px 7px 7px;
+  display: flex;
+  padding: 7px 15px 7px 15px;
   border-bottom: 1px solid #161616; /* LINES IN TABLE */
   overflow: hidden;
 }
 
-ul.lst li span {
+ul.lst li span.bill-description {
+  flex-grow: 2;
   float: left;
   width: 75%;
   padding: 0 0 0 10px;
 }
 
-ul.lst li em {
-  float: right;
-  font-style: normal;
-  font-weight: normal;
-  color: #2A2A2A; /* £ AMOUNTS IN TABLE */
-  padding: 0 10px 0 0;
+ul.lst li span.bill-amount {
+  flex-grow: 4;
+  margin-right: 5px;
+  text-align: right;
+  /*padding: 0 0 0 10px;*/
 }
+
+ul.lst li span.bill-button {
+  width: 2px;
+  /*margin-left: 5px;*/
+  float: right;
+  text-align: right;
+  vertical-align: middle;
+} 
+
+ul.lst li span.bill-button button {
+  vertical-align: middle;
+} 
 
 ul.lst::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -233,21 +327,48 @@ ul.lst::-webkit-scrollbar-thumb {
     background-color: #161616;
 }
 
+ul.lst li span {
+  float: none;
+}
+
+.bill-description {
+  display: inline-block;
+}
+
+.glyphicon {
+  float: right;
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 0px;
+}
+
+.paymentmsg {
+  vertical-align: middle;
+  line-height: 25px;
+  padding-left: 10px;
+
+
+}
+
 ul.totals{
   list-style-type: none;
   display: block;
-  font-size: 20px;
+  font-size: 14px;
   text-indent: 0px;
   font-family: 'Open Sans', sans-serif;
-  margin: 0px 87px 0px 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   padding-left: 40px;
+  padding-right: 40px;
   border: 1px;
   border-color: #000000;
   }
 
 ul.totals li {
   position: relative;
-  margin: 20px 0 20px 2px;
+  /*height: 25px;*/
+  line-height: 10px;
+  margin: 5px 0 5px 0px;
 /*  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
   -o-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -256,6 +377,7 @@ ul.totals li {
 }
 
 ul.totals li a {
+  font-weight: bold;
   position: relative;
   padding: 5px;
   z-index: 100;
@@ -270,29 +392,71 @@ ul.totals li span {
   background: #6BD791; /* BACKGROUND % BAR */
 }
 
-ul.totals li:hover {
-  font-size: 30px;
+/*ul.totals li:hover {
+  font-size: 18px;
   border-color: #FFFFFF;
-}
+}*/
 
 .btn-group > .btn:first-child {
-margin-left: 56px;
+  margin-left: 70px;
+  width: 250px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+
 }
 .btn-group.open .dropdown-toggle {
+width: 250px;
+
 -webkit-box-shadow: none; 
 box-shadow: inset none; 
-background-color: #fff;
+background-color: #BFF279;
 border-color: #000000;
 }
 
+.btn-group.open .dropdown-toggle:hover {
+  background-color: #97E9B3;
+  transition:0.6s;
+}
+
 #pay {
-  margin: -15px 0px 0;
+  -webkit-padding-start: 0;
+  padding: none;
+  list-style-type: none;
+  margin-top: 0px;
+  margin: 0px 0px;
   border-radius: 0px;
+  border-top: none;
   border-color: #000000;
-  background-color: #6BD791;
+  /*background-color: #6BD791;*/
  /* border-width: 1px;
   border-color: #2A2A2A;*/
-  margin-bottom: 14px;
-  width: 75%;
+  margin-bottom: 10px;
+  width: 78%;
 }
+
+.dropdown-menu {
+  padding-bottom: 0px;
+}
+
+.pay-btn {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid black;
+}
+
+li.pay-btn:hover {
+  background-color: #FF9582;
+  transition: 0.6s;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+  background-color: #97E9B3;
+  border-color: black;
+  transition: 0.8s;
+}
+
+/*#pay:hover {
+  background-color: rgba(107,215,144,0.8)
+}*/
 

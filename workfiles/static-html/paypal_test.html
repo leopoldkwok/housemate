@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+
+<body>
+  
+  
+
+
+<ul>
+  <li>
+    <form accept-charset="UTF-8" action="/paypal" method="post">
+      <input id="email" name="email" type="hidden" value="chris.oatley@gmail.com" />
+      <input id="amount" name="amount" type="hidden" value="5" />
+      <input name="commit" type="submit" value="Pay Chris" />
+    </form>  
+  </li>
+  <li>
+    <form accept-charset="UTF-8" action="/paypal/pay" method="post">
+      <input id="email" name="email" type="hidden" value="leopoldkwok@gmail.com" />
+      <input id="amount" name="amount" type="hidden" value="12" />
+      <input name="commit" type="submit" value="Pay Leo" />
+    </form>  
+  </li>
+</ul>
+
+
+</body>
+</html>
