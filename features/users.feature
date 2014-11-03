@@ -45,10 +45,11 @@ Feature: As a user I want to be able to see
         Then I should see "tv£50.50" 
         And I should see "tax£34.60"
 
-    @javascript
+    @javascript @selenium
     Scenario: The user cannot see bills of users in other households
         When I log out as "test1@test.com"
         And I am logged in as "test3@test.com"
+        And I am on the homepage
         Then I should not see "tv£50.50" 
         And I should not see "tax£34.60"
 
