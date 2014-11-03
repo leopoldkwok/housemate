@@ -20,8 +20,23 @@ Feature: As a user I want to be able to see
     Scenario: The user should not see options to sign in or up when signed in
         When I select the menu
         Then I should see "Sign out"
+        Then I should see "Settings"
+        But I should see "All bills"
+        And I should see "Add an abode"
         But I should not see "Sign in"
         And I should not see "Sign up"
+
+    @javascript @selenium
+    Scenario: The user should not see options other than sign in or up when not signed in
+        When I select the menu
+        And I click the link "Sign out"
+        When I select the menu
+        Then I should not see "Sign out"
+        Then I should not see "Settings"
+        But I should not see "All bills"
+        And I should not see "Add an abode"
+        But I should see "Sign in"
+        And I should see "Sign up"
 
     @javascript
     Scenario: The user can see other users' bills

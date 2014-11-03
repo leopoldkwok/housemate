@@ -20,16 +20,16 @@
         <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
         <menu><a href="#" class="navbar-menu col-xs-2 col-md-2" id='dropdown-menu' data-toggle="dropdown"><img src="/Menu.png"></a>
           <ul class="dropdown-menu pull-right" role="menu">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">All bills</a></li>
-            <li><a href="#">Pay Housemates</a></li>
             <% if user_signed_in? %>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">All bills</a></li>
+              <li><a href="#">Pay Housemates</a></li>
+              <li><%= link_to "Add an abode", new_abode_path %></li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Sign in", new_user_session_path %></li>
               <li><%= link_to "Sign up", new_user_registration_path %></li>
             <% end %>
-            <li><%= link_to "Add an abode", new_abode_path %></li>
           </ul>
         </menu>
       </nav><!-- End of nav bar -->

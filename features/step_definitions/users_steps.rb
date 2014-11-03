@@ -24,3 +24,7 @@ end
 When(/^I select the menu$/) do
   page.find("#dropdown-menu").click
 end
+
+When(/^I click the link "(.*?)"$/) do |link|
+  click_link link
+end
