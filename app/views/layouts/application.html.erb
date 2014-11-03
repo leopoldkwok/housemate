@@ -21,9 +21,9 @@
         <menu><a href="#" class="navbar-menu col-xs-2 col-md-2" id='dropdown-menu' data-toggle="dropdown"><img src="/Menu.png"></a>
           <ul class="dropdown-menu pull-right" role="menu">
             <% if user_signed_in? %>
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">All bills</a></li>
-              <li><a href="#">Pay Housemates</a></li>
+              <!-- <li><a href="#">Settings</a></li> -->
+              <!-- <li><a href="#">All bills</a></li> -->
+              <!-- <li><a href="#">Pay Housemates</a></li> -->
               <li><%= link_to "Add an abode", new_abode_path %></li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             <% else %>

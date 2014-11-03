@@ -11,6 +11,8 @@ Feature: As a user I want to be able to see
             |   test2@test.com    |   12345678  |
             |   test3@test.com    |   12345678  |    
 
+        And "test1@test.com" creates an abode called "home"
+        Then adds "test2@test.com" to the abode called "home"
         And  "test1@test.com" uploads a "tv" bill for "50.50" pounds
         And  "test2@test.com" uploads a "tax" bill for "34.60" pounds
         Then  I am logged in as "test1@test.com"
@@ -20,9 +22,9 @@ Feature: As a user I want to be able to see
     Scenario: The user should not see options to sign in or up when signed in
         When I select the menu
         Then I should see "Sign out"
-        Then I should see "Settings"
-        But I should see "All bills"
-        And I should see "Add an abode"
+        # Then I should see "Settings"
+        # But I should see "All bills"
+        # And I should see "Add an abode"
         But I should not see "Sign in"
         And I should not see "Sign up"
 
@@ -42,6 +44,14 @@ Feature: As a user I want to be able to see
     Scenario: The user can see other users' bills
         Then I should see "tv£50.50" 
         And I should see "tax£34.60"
+
+    @javascript
+    Scenario: The user cannot see bills of users in other households
+        When I log out as "test1@test.com"
+        And I am logged in as "test3@test.com"
+        Then I should not see "tv£50.50" 
+        And I should not see "tax£34.60"
+
 
     @javascript
     Scenario: The user can only edit their own bills

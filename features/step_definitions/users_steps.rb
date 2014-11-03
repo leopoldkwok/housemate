@@ -28,3 +28,26 @@ end
 When(/^I click the link "(.*?)"$/) do |link|
   click_link link
 end
+
+Given(/^"(.*?)" creates an abode$/) do |user|
+  @home = Abode.create(user_id: user.id)
+  user.abode_id = @abode.id
+end
+
+Given(/^"(.*?)" creates an abode called "(.*?)"$/) do |user, name|
+   @user = User.find_by(email: user)
+   @abode = Abode.create(user_id: @user.id, name_number: name)
+   @user.abode_id = @abode.id
+end
+
+
+Then(/^adds "(.*?)" to the abode called "(.*?)"$/) do |user, name|
+  @user = User.find_by(email: user)
+  @abode = Abode.find_by(name_number: name)
+  @user.abode_id = @abode.id
+end
+
+When(/^I log out as "(.*?)"$/) do |user|
+   current_user = User.find_by_email(user)
+  logout(current_user)
+end
