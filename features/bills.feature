@@ -35,9 +35,11 @@ Feature: As a user I want to be able to
     @javascript @selenium
     Scenario: The user can mark a bill as settled
         When I fill in "Bill" with "taxes" and "Amount" with "40"
-        And click the button "Add Bill"
+        And I click the button "Add Bill"
+        When I fill in "Bill" with "telephone" and "Amount" with "30"
+        And I click the button "Add Bill"
         And check the box
-        Then I should see "Total Settled: £40"
+        Then I should see "You've paid £40"
 
     @javascript @selenium
     Scenario: The user is told how much they owe

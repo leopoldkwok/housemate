@@ -7,25 +7,29 @@ Then(/^I should see a button called "(.*?)" with css "(.*?)"$/) do |arg1, arg2|
     expect(page).to have_content arg1
 end
 
-Then(/^when I select "(.*?)"$/) do |arg1|
-  click_button arg1
+Then(/^when I select "(.*?)"$/) do |button|
+  click_button button
 end
 
-Then(/^I fill in "(.*?)" with "(.*?)" and "(.*?)" with "(.*?)"$/) do |arg1, arg2, arg3, arg4|
-  fill_in arg1, with: arg2
-  fill_in arg3, with: arg4
+Then(/^I fill in "(.*?)" with "(.*?)" and "(.*?)" with "(.*?)"$/) do |bill, description, amount, value|
+  fill_in bill, with: description
+  fill_in amount, with: value
 end
 
-Then(/^I should see "(.*?)"$/) do |arg1|
-  expect(page).to have_content arg1
+Then(/^I should see "(.*?)"$/) do |text|
+  expect(page).to have_content text
 end
 
 Then(/^I should not see "(.*?)"$/) do |text|
   expect(page).not_to have_content text
 end
 
-Then(/^click the button "(.*?)"$/) do |arg1|
-  click_button arg1
+Then(/^click the button "(.*?)"$/) do |button|
+  click_button button 
+end
+
+Then(/^I click the button "(.*?)"$/) do |button|
+  first(:button, button).click
 end
 
 Then(/^I should see an "(.*?)" called "(.*?)"$/) do |element, text|
@@ -37,7 +41,7 @@ Then(/^I should see a "(.*?)" called "(.*?)"$/) do |element, text|
 end
 
 When(/^check the box$/) do
-  check 'settle-check'
+  first(:checkbox, 'settle-check').set(true)
 end
 
 Then(/^that I refresh$/) do

@@ -1,4 +1,4 @@
- @users
+@users
 Feature: As a user I want to be able to see
     my flat's bills but only edit my own bills.
     I don't want my flatmates to edit by bills
@@ -16,7 +16,12 @@ Feature: As a user I want to be able to see
         Then  I am logged in as "test1@test.com"
         And I am on the homepage
 
-
+    @javascript
+    Scenario: The user should not see options to sign in or up when signed in
+        When I select the menu
+        Then I should see "Sign out"
+        But I should not see "Sign in"
+        And I should not see "Sign up"
 
     @javascript
     Scenario: The user can see other users' bills
