@@ -8,7 +8,7 @@
     <title>HouseMate</title>
     <%= javascript_include_tag "application" %>
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400|Open+Sans' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application", :media => "all" %>
   </head>
@@ -18,22 +18,25 @@
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div id="brand" class="col-xs-2 col-md-2"><a class="navbar-brand" href="#"><img src="/Logo.png"></a></div>
         <div class="navbar-header col-xs-8 col-md-8"><h1>HouseMate</h1></div>
-        <menu><a href="#" class="navbar-menu col-xs-2 col-md-2" data-toggle="dropdown"><img src="/Menu.png"></a>
+        <menu><a href="#" class="navbar-menu col-xs-2 col-md-2" id='dropdown-menu' data-toggle="dropdown"><img src="/Menu.png"></a>
           <ul class="dropdown-menu pull-right" role="menu">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">All bills</a></li>
-            <li><a href="#">Pay Housemates</a></li>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "Add an abode", new_abode_path %></li>
+            <% if user_signed_in? %>
+              <!-- <li><a href="#">Settings</a></li> -->
+              <!-- <li><a href="#">All bills</a></li> -->
+              <!-- <li><a href="#">Pay Housemates</a></li> -->
+              <li><%= link_to "Add an abode", new_abode_path %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
           </ul>
         </menu>
       </nav><!-- End of nav bar -->
     </header>
 
     
-      <%= notice %>
+      <%= notice %> 
     
     <%= yield %>
 
@@ -42,6 +45,6 @@
     <main id="ember-app"></main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   </body>
 </html>

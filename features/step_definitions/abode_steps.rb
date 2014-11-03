@@ -14,9 +14,9 @@ When(/^I click the link to add an abode$/) do
   click_link 'Add an abode'
 end
 
-Then(/^I will should see the form to add an abode$/) do
+Then(/^I should see the form to add an abode$/) do
   expect(current_path).to eq '/abodes/new'
-  expect(page).to have_content "Add the address for your abode"
+  expect(page).to have_content "Enter your home details"
 end
 
 Given(/^I am on the new abode page$/) do
@@ -37,4 +37,12 @@ end
 
 Then(/^I should see the abode's page$/) do
   expect(current_path).to match(/abodes\/\d/)
+end
+
+Then(/^I fill "(.*?)" with "(.*?)"$/) do |input, text|
+  fill_in input, with: text
+end
+
+Then(/^I should be on the homepage$/) do
+  expect(current_path).to eq '/'
 end
