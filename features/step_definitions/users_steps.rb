@@ -20,3 +20,7 @@ end
 Then(/^I should see '(\d+)' buttons called "(.*?)"$/) do |number, name|
   expect(page).to have_css('button', text: name, count: number)
 end
+
+When(/^I select the menu$/) do
+  page.find("#dropdown-menu").click
+end

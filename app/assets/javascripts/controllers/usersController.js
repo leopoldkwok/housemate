@@ -97,7 +97,7 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('currentUserId', '@each.totalSettled', '@each.currentUserSettled'),
 
     currentUserPercentageText: function() {
-        return "width: " + (parseInt(this.get('currentUserPercentageSettled')*100), 10).toString() + "%;";
+        return "width: " + (parseInt(this.get('currentUserPercentageSettled')*100)).toString() + "%;";
     }.property('currentUserPercentageSettled'),
 
     currentUserDelta: function(){
@@ -155,7 +155,7 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('flatBills', 'flatSettled'),
 
     flatPercentageText: function() {
-        return "width: " + (parseInt(this.get('flatPercentageSettled')*100, 10)).toString() + "%;";
+        return "width: " + (parseInt(this.get('flatPercentageSettled')*100)).toString() + "%;";
     }.property('flatPercentageSettled'),
 
     numberOfFlatmates: function(){
