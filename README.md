@@ -12,7 +12,7 @@ We're taking caring of those awkward "please pay me" conversations so you don't 
 
 ###Background
 
-[James](https://github.com/Jrmcneil)'s flatmate is one of those super organised types who keeps a spreadsheet of their bills with a tab for each month. Super practical, kind of ugly, bit of a hassle to keep track of. We figured that maybe a more intuitive, persistent, web-enabled solution would be something a lot of people would find useful.
+[James](https://github.com/Jrmcneil)'s flatmate is one of those super organised types who keeps a spreadsheet of their bills with a tab for each month. Very practical, kind of ugly, bit of a hassle to keep track of. Plus at the end of the day you have to transfer money via direct debit anyways. We figured that a more intuitive, persistent, web-enabled solution with integrated payments would be something a lot of people would find useful.
 
 ###Team
 
