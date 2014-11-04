@@ -21,11 +21,11 @@ This project was a labor of love from 5 members of the Makers Academy August 201
 
 NOTE: This README is very much a work in progress. Please check back in a couple days...
 
-Coming soon to a Housemate near you!
-* Automatic updates when your flatmates pay their bills (using Web Sockets)
-* Email invites for people who haven't yet created a Housemate account to join your flat (using Mailgun)
-* Text message reminders that payday is coming up (using Twilio)
-* Integrating month-to-month interface
+> Coming soon to a Housemate near you! :
+> * Automatic updates when your flatmates pay their bills (using Web Sockets)
+> * Email invites for people who haven't yet created a Housemate account to join your flat (using Mailgun)
+> * Text message reminders that payday is coming up (using Twilio)
+> * Integrating month-to-month interface
 
 
 http://myhousemate.herokuapp.com/
