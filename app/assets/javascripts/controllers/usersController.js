@@ -5,13 +5,13 @@ App.UsersController = Ember.ArrayController.extend({
     currentUserId: Ember.computed.alias('controllers.currentUser.id'),
     actions: {      
         createBill: function() {
-            description = this.get('newDescription');
-            amount      = this.get('newAmount');
-            if (!amount) { return false };
-            if (!description.trim()) { return false };
-            id = this.get('currentUserId').toString();
+            var description = this.get('newDescription');
+            var amount      = this.get('newAmount');
+            if (!amount) { return false; }
+            if (!description.trim()) { return false; }
+            var id = this.get('currentUserId').toString();
             this.model.store.find('user', id).then(function(user){
-                abode_id = user.get('abode_id');
+                var abode_id = user.get('abode_id');
                 user.get('bills').addObject(user.store.createRecord('bill', {
                     description:    description,
                     amount:         amount,
@@ -38,13 +38,13 @@ App.UsersController = Ember.ArrayController.extend({
         var number =  this.model.store.all('user').filterBy('id',id)[0].get('totalBills');
         this.model.store.all('user').forEach(function(item, index, enumerable) {
             Ember.set(item, 'currentUserSettled', number);
-        })
+        });
         return number;
     }.property('currentUserId', '@each.totalBills', '@each.currentUserSettled'),
 
     currentUserBillsNoBind: function() {
         var id = this.get('currentUserId').toString();
-        return  this.model.store.all('user').filterBy('id',id).getEach('totalBills').reduce(sum,0)
+        return  this.model.store.all('user').filterBy('id',id).getEach('totalBills').reduce(sum,0);
     }.property('currentUserId', '@each.totalBills'),
 
     currentUserSettled: function(){
@@ -58,7 +58,7 @@ App.UsersController = Ember.ArrayController.extend({
 
     currentUserSettledNoBind: function() {
         var id = this.get('currentUserId').toString();
-        return this.model.store.all('user').filterBy('id',id).getEach('totalSettled').reduce(sum,0)
+        return this.model.store.all('user').filterBy('id',id).getEach('totalSettled').reduce(sum,0);
     }.property('currentUserId', '@each.totalSettled'),
 
     currentUserSettledStr: function(){
@@ -83,11 +83,11 @@ App.UsersController = Ember.ArrayController.extend({
         var settled = this.get('currentUserSettledNoBind');
         var bills   = this.get('currentUserBillsNoBind');
         if(settled === bills) {
-            return "You are a bill paying star"
+            return "You are a bill paying star";
         } else if(settled) {
-            return "You've paid £" + this.get('currentUserSettledStr') + " of £" + this.get('currentUserBillsStr')
+            return "You've paid £" + this.get('currentUserSettledStr') + " of £" + this.get('currentUserBillsStr');
         } else {
-            return "You haven't paid for anything. Nothing."
+            return "You haven't paid for anything. Nothing.";
         }
     }.property('currentUserSettledStr', 'currentUserBillsStr','currentUserSettledNoBind','currentUserBillsNoBind'),
 
@@ -124,9 +124,9 @@ App.UsersController = Ember.ArrayController.extend({
     flatSettled: function() {
         var number = this.model.store.all('user').getEach('totalSettled').reduce(sum,0);
         this.model.store.all('user').forEach(function(item, index, enumerable) {
-            Ember.set(item, 'flatSettled', number)
-        })
-        return number
+            Ember.set(item, 'flatSettled', number);
+        });
+        return number;
     }.property('@each.totalSettled', 'flatSettled'),
 
     flatSettledStr: function() {
@@ -140,13 +140,13 @@ App.UsersController = Ember.ArrayController.extend({
 
     flatPaidText: function() {
         var settled = this.get('flatSettled');
-        var bills   = this.get('flatBills')
+        var bills   = this.get('flatBills');
         if(settled === bills) {
-            return "This is the house that love built"
+            return "This is the house that love built";
         } else if(settled) {
-            return "The house has paid £" + this.get('flatSettledStr') + " of £" + this.get('flatBillsStr')
+            return "The house has paid £" + this.get('flatSettledStr') + " of £" + this.get('flatBillsStr');
         } else {
-            return "Your house hasn't paid a thing"
+            return "Your house hasn't paid a thing";
         }
     }.property('flatSettled', 'flatBills','flatBillsStr', 'flatSettledStr'),
 
@@ -189,14 +189,14 @@ App.UsersController = Ember.ArrayController.extend({
     },
 
     netOwed: function(){
-        currentUserSettled = this.get('currentUserSettled');
-        amounts = this.get('flatSettled');
-        flatmates   = this.get('numberOfFlatmates');
+        var currentUserSettled = this.get('currentUserSettled');
+        var amounts = this.get('flatSettled');
+        var flatmates   = this.get('numberOfFlatmates');
         return Math.round((amounts/flatmates - currentUserSettled)*100)/100;
     }.property('@each.totalSettled','flatSettled','currentUserSettled', 'currentUserId','numberOfFlatmates'),
 
     netOwedStr: function(){
-        val = Math.abs(this.get('netOwed')).toString();
+        var val = Math.abs(this.get('netOwed')).toString();
         if (val === "0") {
             return null;
         } else if (val.charAt(val.length-2) === ".") {
@@ -207,7 +207,7 @@ App.UsersController = Ember.ArrayController.extend({
     }.property('netOwed'),
 
     balanceMessage: function(){
-        balance = this.get('netOwed');
+        var balance = this.get('netOwed');
         if(balance > 0) {
             return "You owe £";
         } else if (balance < 0) {
