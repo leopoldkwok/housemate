@@ -26,3 +26,6 @@ Coming soon to a Housemate near you!
 * Email invites for people who haven't yet created a Housemate account to join your flat (using Mailgun)
 * Text message reminders that payday is coming up (using Twilio)
 * Integrating month-to-month interface
+
+
+http://myhousemate.herokuapp.com/
