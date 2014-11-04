@@ -41,7 +41,7 @@ This project was a labor of love from 5 members of the Makers Academy August 201
 
 ###Housemate in action:
 
-![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.51.png) | ![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.40.png) | 
+![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.51.png) | ![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.40.png) 
 
 NOTE: This README is very much a work in progress. Please check back in a couple days...
 
