@@ -18,6 +18,30 @@ We're taking caring of those awkward "please pay me" conversations so you don't 
 
 This project was a labor of love from 5 members of the Makers Academy August 2014 cohort: [Nick](https://github.com/Nickrhys), [Leo](https://github.com/leopoldkwok), [James](https://github.com/Jrmcneil), [Andy](https://github.com/Andy010) and [Chris](https://github.com/flickoid)
 
+###Technologies used
+
+* Development
+  * Ember.js
+  * Ruby
+  * Rails
+  * JQuery
+  * HTML5
+  * CSS3
+  * Bootstrap
+  * Paypal SDK/ Paypal adaptive
+  * Postgresql
+  
+* Testing
+  * Rspec
+  * Cpaybara
+  * Cucumber
+  * Polergeist
+  * Selenium
+  * Database cleaner
+
+###Housemate in action:
+
+
 
 NOTE: This README is very much a work in progress. Please check back in a couple days...
 
