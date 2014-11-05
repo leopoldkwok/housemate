@@ -33,7 +33,7 @@ All of these features are accessed via the root with no need to refresh. Once a 
 
 ####Housemate in action:
 
-![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.51.png) | ![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.40.png) 
+![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.51.png) ![](https://github.com/Jrmcneil/housemate/blob/master/public/screenshots/Screenshot%202014-11-04%2017.45.40.png) 
 
 ####Classes
 
