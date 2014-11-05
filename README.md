@@ -70,11 +70,11 @@ Abodes have many users and many bills. An abode belongs to the user who created 
 
 ####Postscript: Ember
 
-We chose to use the Ember.js javascript framework to achieve our objective of a one page app. This posed a number of challenges. First, Ember can be challenging to learn, particularly in the given timeframe. 
+We chose to use the Ember.js javascript framework to achieve our objective of a one page app. This posed a number of challenges. 
 
-Debugging is particularly difficult, as error messages are often not very detailed (or they're non-existent). We highly (highly) recommend using [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en), the Ember chrome plugin. Using the {{debugger}} helper as a break in your code will save you time and again. 
+First, Ember can be challenging to learn, particularly in the given timeframe. Debugging is particularly difficult, as error messages are often not very detailed (or they're non-existent). We highly (highly) recommend using [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en), the Ember chrome plugin. Using the {{debugger}} helper as a break in your code will save you time and again. 
 
-Keeping track of scope in a client-side framework is hard. Understanding what 'this' is at any given time is probably the single biggest challenge we faced on this project. Gaining a firm grasp of what Ember functions return is key. For instance,  this.store.all('objectName').filterBy etc... will return whatever object(s) Ember finds cached in the data store, while this.store.find('objectName', id) will send a network request to the database and return a promise object which won't resolve to the actual object you're looking for until you do something with it (i.e. you need to add .then(*something*))
+Keeping track of scope in a client-side framework is hard. Understanding what 'this' is at any given time is probably the single biggest challenge we faced on this project. Gaining a firm grasp of what Ember functions return is key. For instance,  this.store.all('objectName').filterBy etc... will return whatever object(s) Ember finds cached in the data store, while this.store.find('objectName', id) will send a network request to the database and return a promise object which won't resolve to the actual object you're looking for until you do something with it (i.e. you need to add '.then(*something*)')
 
 We chose to build our app on Rails in order to easily integrate Devise and a Postgresql database. But when you build an MVC on top of an MVC, you can get some unexpected consequences. Ember data has to be in JSON so anything that passes to the front end has to be parsed by an [Active Model Serializer](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html). The serializer makes some cavalier assumptions about naming conventions. So if you have an attribute in your database called 'myAttribute', it will get passed to your front end as is, but when you persist data back to the server, the serializer will assume you want to convert Javascript to Ruby conventions and change 'myAttribute' to 'my_attribute'. This won't throw an error, so be careful to check the server log if data isn't saving. 
 
@@ -82,11 +82,11 @@ Finally, Ember development is moving very quickly, and a lot of the information 
 
 
 
-> Coming soon:
-> * Automatic updates when your flatmates pay their bills (using Web Sockets)
-> * Email invites for people who haven't yet created a Housemate account to join your flat (using Mailgun)
-> * Text message reminders that payday is coming up (using Twilio)
-> * Integrating month-to-month interface
+###Coming soon to Housemate:
+* Automatic updates when your flatmates pay their bills (using Web Sockets)
+* Email invites for people who haven't yet created a Housemate account to join your flat (using Mailgun)
+* Text message reminders that payday is coming up (using Twilio)
+* Integrating month-to-month interface
 
 
 
