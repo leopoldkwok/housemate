@@ -46,6 +46,12 @@ Users have many bills and belong to one flat. The flat also belongs to the user 
 #####Abodes
 Abodes have many users and many bills. An abode belongs to the user who created it
 
+####Test
+
+Cucumber was used as a framework for testing Housemate. Poltergeist was used as the default browser but for some scenarios (e.g. where we needed to refresh the page) we used selenium (with the Chrome web driver). There are also a few Rspec unit tests for the models on the server side. 
+
+We opted not to run unit tests the client side. As [Joliss](https://github.com/joliss) has pointe out [here](http://www.slideshare.net/jo_liss/testing-ember-apps) (slide 28), unit tests for Ember tend to be 'weak' and will usually pass regardless of whether your ap is working. 
+
 ###Technologies used
 
 * Development
@@ -66,6 +72,9 @@ Abodes have many users and many bills. An abode belongs to the user who created 
   * Polergeist
   * Selenium
   * Database cleaner
+
+* Project management
+ * Trello 
 
 
 ####Postscript: Ember
