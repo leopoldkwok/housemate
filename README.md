@@ -3,8 +3,6 @@
 
 ##Housemate: Makers Academy Final Project
 
-*Note: Housemate is currently being rebuilt on a fully JS stack [here](https://github.com/Housemate-app/housemate-node)*
-
 ###Introduction
 
 Housemate is a bill sharing app for flatmates. It keeps you up to day on who's supposed to pay what. And once they've paid, it tells you how much you owe them - or how much you're owed. You can then settle with them directly through our integrated Paypal connection. 
