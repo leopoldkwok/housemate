@@ -1,8 +1,9 @@
 | [*Makers Academy*](http://www.makersacademy.com) | Final Project |
 | ------------------------------------------------ | ------ |
 
-
 ##Housemate: Makers Academy Final Project
+
+*Note: Housemate is currently being rebuilt on a fully JS stack [here](https://github.com/Housemate-app/housemate-node)*
 
 ###Introduction
 
