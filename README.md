@@ -95,6 +95,3 @@ Finally, Ember development is moving very quickly, and a lot of the information 
 * Email invites for people who haven't yet created a Housemate account to join your flat (using Mailgun)
 * Text message reminders that payday is coming up (using Twilio)
 * Integrating month-to-month interface
-
-
-
