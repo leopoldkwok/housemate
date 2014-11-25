@@ -3,7 +3,7 @@
 
 ##Housemate: Makers Academy Final Project
 
-###Introduction
+###Introduction 
 
 Housemate is a bill sharing app for flatmates. It keeps you up to day on who's supposed to pay what. And once they've paid, it tells you how much you owe them - or how much you're owed. You can then settle with them directly through our integrated Paypal connection. 
 
